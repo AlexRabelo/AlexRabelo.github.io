@@ -296,8 +296,9 @@ p {
 .terminal-body .cmd { color: #94a3b8; }
 .terminal-body .out { color: var(--accent); opacity: 0.9; margin-left: 16px; }
 .terminal-body .dim { color: var(--text-dim); }
-.terminal-body .prompt-line { color: var(--accent); font-weight: 700; margin-left: 0; }
-.terminal-body .cmd-output { color: #cbd5e1; margin-left: 0; }
+.terminal-body .prompt-line { color: var(--accent); font-weight: 700; margin-left: 0; display: block; }
+.terminal-body .cmd-output { color: #cbd5e1; margin-left: 0; display: block; }
+.terminal-body span[id^="line-"] { display: block; margin-left: 0; }
 .type-out { display: block; margin-left: 2.2rem; }
 
 /* ==========================================================================
