@@ -296,6 +296,7 @@ p {
 .terminal-body .cmd { color: #94a3b8; }
 .terminal-body .out { color: var(--accent); opacity: 0.9; margin-left: 16px; }
 .terminal-body .dim { color: var(--text-dim); }
+.type-out { display: block; margin-left: 2.2rem; }
 
 /* ==========================================================================
    Seção Sobre
@@ -698,25 +699,23 @@ footer {
             <div class="dot green"></div>
           </div>
           <div class="terminal-body">
-            <div><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-1"></span></div>
-            <div class="dim">Infraestrutura · Cloud · DevOps · SRE · IA</div>
-            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-2"></span></div>
-            <div class="out" style="margin-top:6px;">[OK] provisionado em 4m 12s</div>
-            <div class="out">[OK] aplicações saudáveis</div>
-            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-3"></span></div>
-            <div class="dim">Infraestrutura · Cloud · DevOps · SRE · IA</div>
-            <div class="dim">Linux: RHEL, CentOS, Debian, SUSE</div>
-            <div class="dim">Cloud: AWS · Azure</div>
-            <div class="dim">IaC: Terraform · Ansible · Puppet · CFEngine</div>
-            <div class="dim">Containers: Docker · Kubernetes</div>
-            <div class="dim">CI/CD: GitHub Actions · Jenkins</div>
-            <div class="dim">Observabilidade: Zabbix · Dynatrace · Prometheus · Grafana</div>
-            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-4"></span></div>
-            <div class="out" style="margin-top:6px;">[OK] provisionado em 4m 12s</div>
-            <div class="out">[OK] aplicações saudáveis</div>
-            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-5"></span></div>
-            <div class="out">[2026-11-07] deploy concluído com sucesso</div>
-            <div class="out">[2026-11-07] métricas dentro do esperado</div>
+            <div><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="t1"></span></div>
+            <span class="type-out" id="o1"></span>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="t2"></span></div>
+            <span class="type-out" id="o2"></span>
+            <span class="type-out" id="o3"></span>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="t3"></span></div>
+            <span class="type-out" id="o4"></span>
+            <span class="type-out" id="o5"></span>
+            <span class="type-out" id="o6"></span>
+            <span class="type-out" id="o7"></span>
+            <span class="type-out" id="o8"></span>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="t4"></span></div>
+            <span class="type-out" id="o9"></span>
+            <span class="type-out" id="o10"></span>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="t5"></span></div>
+            <span class="type-out" id="o11"></span>
+            <span class="type-out" id="o12"></span>
           </div>
         </div>
       </div>
@@ -999,34 +998,48 @@ document.querySelectorAll('.reveal').forEach(el => {
 });
 
 /* ==========================================================================
-   TypeWriter — digita apenas o comando após o prompt estático
+   TypeWriter — prompt fixo, digita comandos e respostas
    ========================================================================== */
-const commands = [
-  { id: 'cmd-1', text: 'cat portfolio/sobre.txt' },
-  { id: 'cmd-2', text: './deploy.sh --env producao --regiao sao-paulo' },
-  { id: 'cmd-3', text: 'cat portfolio/sobre.txt' },
-  { id: 'cmd-4', text: './deploy.sh --env producao --regiao sao-paulo' },
-  { id: 'cmd-5', text: 'tail -f /var/log/sistema.log' }
+const steps = [
+  { type: 'cmd', id: 't1', text: 'cat portfolio/sobre.txt', delay: 35 },
+  { type: 'out', id: 'o1', text: 'Infraestrutura · Cloud · DevOps · SRE · IA', delay: 35 },
+  { type: 'cmd', id: 't2', text: './deploy.sh --env producao --regiao sao-paulo', delay: 35 },
+  { type: 'out', id: 'o2', text: '[OK] provisionado em 4m 12s', delay: 35 },
+  { type: 'out', id: 'o3', text: '[OK] aplicações saudáveis', delay: 35 },
+  { type: 'cmd', id: 't3', text: 'cat portfolio/sobre.txt', delay: 35 },
+  { type: 'out', id: 'o4', text: 'Infraestrutura · Cloud · DevOps · SRE · IA', delay: 35 },
+  { type: 'out', id: 'o5', text: 'Linux: RHEL, CentOS, Debian, SUSE', delay: 35 },
+  { type: 'out', id: 'o6', text: 'Cloud: AWS · Azure', delay: 35 },
+  { type: 'out', id: 'o7', text: 'IaC: Terraform · Ansible · Puppet · CFEngine', delay: 35 },
+  { type: 'out', id: 'o8', text: 'Containers: Docker · Kubernetes', delay: 35 },
+  { type: 'out', id: 'o9', text: 'CI/CD: GitHub Actions · Jenkins', delay: 35 },
+  { type: 'out', id: 'o10', text: 'Observabilidade: Zabbix · Dynatrace · Prometheus · Grafana', delay: 35 },
+  { type: 'cmd', id: 't4', text: './deploy.sh --env producao --regiao sao-paulo', delay: 35 },
+  { type: 'out', id: 'o11', text: '[OK] provisionado em 4m 12s', delay: 35 },
+  { type: 'out', id: 'o12', text: '[OK] aplicações saudáveis', delay: 35 },
+  { type: 'cmd', id: 't5', text: 'tail -f /var/log/sistema.log', delay: 35 },
+  { type: 'out', id: 'o13', text: '[2026-11-07] deploy concluído com sucesso', delay: 35 },
+  { type: 'out', id: 'o14', text: '[2026-11-07] métricas dentro do esperado', delay: 35 }
 ];
 
-let cmdIndex = 0;
+let stepIndex = 0;
 let charIndex = 0;
 
 function typeWriter() {
-  if (cmdIndex >= commands.length) return;
+  if (stepIndex >= steps.length) return;
 
-  const cmd = commands[cmdIndex];
-  const el = document.getElementById(cmd.id);
+  const step = steps[stepIndex];
+  const el = document.getElementById(step.id);
   if (!el) return;
 
-  if (charIndex < cmd.text.length) {
-    el.textContent += cmd.text.charAt(charIndex);
+  if (charIndex < step.text.length) {
+    el.textContent += step.text.charAt(charIndex);
     charIndex++;
-    setTimeout(typeWriter, 35);
+    setTimeout(typeWriter, step.delay);
   } else {
-    cmdIndex++;
+    stepIndex++;
     charIndex = 0;
-    setTimeout(typeWriter, 500);
+    setTimeout(typeWriter, 600);
   }
 }
 
