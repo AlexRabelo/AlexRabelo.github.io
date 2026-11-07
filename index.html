@@ -3,21 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alex Rabelo — Escolha seu layout</title>
-<meta name="description" content="Portfólio de Alex Rabelo — Cloud, DevOps &amp; SRE. Escolha entre 5 layouts modernos e profissionais.">
+<title>Alex Rabelo — Cloud, DevOps &amp; SRE</title>
+<meta name="description" content="Especialista em Infraestrutura Cloud, DevOps &amp; SRE com foco na junção de TI + IA. Linux, Terraform, Kubernetes, AWS, Azure e automação de infraestrutura.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital@0;1&family=Russo+One&family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 /* ==========================================================================
-   Base e reset
+   Design System — Moderno &amp; Tecnológico
+   Alex Rabelo Portfolio
+   ========================================================================== */
+:root {
+  /* Cores — Dark tecnológico com acento ciano/azul elétrico */
+  --bg: #08090c;
+  --surface: #0f1115;
+  --surface-hover: #15181f;
+  --panel: rgba(15, 17, 21, 0.6);
+  --border: #1e293b;
+  --border-hover: #334155;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --accent: #22d3ee;
+  --accent-soft: rgba(34, 211, 238, 0.10);
+  --accent-glow: rgba(34, 211, 238, 0.25);
+  --accent-2: #3b82f6;
+  --ring: rgba(34, 211, 238, 0.4);
+  --success: #10b981;
+
+  /* Tipografia */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+
+  /* Espaçamento */
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Border & shadow */
+  --radius: 16px;
+  --radius-sm: 8px;
+  --shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 40px rgba(34, 211, 238, 0.12);
+
+  /* Motion */
+  --dur: 300ms;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ==========================================================================
+   Reset & base
    ========================================================================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: #0a0a0f;
-  color: #f8fafc;
-  font-family: 'Source Sans 3', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
@@ -25,387 +74,248 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
-h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: -0.02em; color: #f8fafc; margin: 0; }
-p { color: #94a3b8; margin-bottom: 1rem; }
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 0; }
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.05; }
+h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); line-height: 1.2; }
+h3 { font-size: clamp(1.25rem, 3vw, 1.6rem); line-height: 1.35; }
+p { color: var(--text-muted); margin-bottom: 1rem; }
 .section { padding: clamp(4rem, 8vw, 8rem) 1rem; }
-.container { max-width: 1000px; margin: 0 auto; width: 100%; }
+.container { max-width: 1100px; margin: 0 auto; width: 100%; }
 
 /* ==========================================================================
-   Navbar
+   Navbar fixa com blur
    ========================================================================== */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   padding: 1.25rem 1rem;
-  background: rgba(10, 10, 15, 0.6);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #1e293b;
-  transition: padding 300ms ease;
+  background: rgba(8, 9, 12, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: padding var(--dur) var(--ease), background var(--dur) var(--ease);
 }
-.navbar.scrolled { padding: 0.85rem 1rem; }
-.nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.brand { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; color: #f8fafc; display: flex; align-items: center; gap: 0.5rem; }
+.navbar.scrolled {
+  padding: 0.85rem 1rem;
+  background: rgba(8, 9, 12, 0.85);
+}
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { font-family: var(--font-heading); font-weight: 800; font-size: 1.25rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
 .brand-mark {
-  width: 28px; height: 28px; border-radius: 6px;
-  background: linear-gradient(135deg, #22d3ee, #3b82f6);
-  display: grid; place-items: center; font-size: 0.85rem; color: #051015;
+  width: 30px; height: 30px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: grid; place-items: center; font-size: 0.85rem; color: #051015; font-weight: 800;
 }
-.nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
-.nav-links a { font-size: 0.9rem; font-weight: 500; color: #94a3b8; transition: color 300ms ease; }
-.nav-links a:hover { color: #22d3ee; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); transition: color var(--dur) var(--ease); }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 0.7rem 1.4rem; border-radius: var(--radius-sm);
+  background: var(--accent); color: #051015;
+  font-family: var(--font-heading); font-weight: 700; font-size: 0.85rem;
+  border: none; cursor: pointer; text-decoration: none;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), filter var(--dur) var(--ease);
+  box-shadow: 0 10px 24px -8px var(--accent-glow);
+}
+.nav-cta:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
 /* ==========================================================================
-   Hero — seletor de layouts
+   Hero
    ========================================================================== */
 .hero {
-  padding-top: 9rem; padding-bottom: 5rem;
+  padding-top: 10rem; padding-bottom: 5rem;
   position: relative; overflow: hidden; text-align: center;
 }
 .hero::before {
-  content: ""; position: absolute; top: -20%; right: -10%;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 60%);
-  filter: blur(80px); pointer-events: none;
+  content: ""; position: absolute; top: -30%; right: -10%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, transparent 55%);
+  filter: blur(100px); pointer-events: none;
 }
-.hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1rem; line-height: 1.05; }
+.hero::after {
+  content: ""; position: absolute; bottom: -20%; left: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+  filter: blur(100px); pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; }
+.hero h1 { margin-bottom: 1.25rem; }
 .hero-sub {
-  font-size: clamp(1rem, 2vw, 1.15rem); color: #94a3b8;
-  max-width: 560px; margin: 0 auto 2.5rem auto; line-height: 1.7;
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem); color: var(--text-muted);
+  max-width: 640px; margin: 0 auto 2.5rem auto; line-height: 1.75;
 }
+.hero-actions {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 0.9rem 1.75rem; border-radius: var(--radius-sm);
+  font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem;
+  border: none; cursor: pointer; text-decoration: none;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), filter var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #051015; box-shadow: 0 12px 30px -10px var(--accent-glow);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 36px -12px var(--accent-glow); filter: brightness(1.05); }
+.btn-outline {
+  background: transparent; border: 1px solid var(--border); color: var(--text);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-/* Grid de opções */
-.options-grid {
+/* ==========================================================================
+   Seção Sobre
+   ========================================================================== */
+.section-header { text-align: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
+.section-header h2 { margin-bottom: 1rem; }
+.section-header p { max-width: 60ch; margin: 0 auto; font-size: clamp(1rem, 2vw, 1.15rem); }
+
+.sobre-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 6vw, 3rem);
 }
-.option-card {
-  position: relative; border-radius: 16px;
-  border: 1px solid #1e293b; background: #111117;
-  overflow: hidden; transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
-  box-shadow: 0 8px 24px -4px rgba(0,0,0,0.45);
-  display: flex; flex-direction: column;
+.sobre-texto h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+.sobre-texto p { margin-bottom: 1.25rem; }
+.skill-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;
 }
-.option-card:hover {
-  transform: translateY(-6px);
-  border-color: #22d3ee;
-  box-shadow: 0 16px 32px -8px rgba(34, 211, 238, 0.15);
+.skill-tag {
+  display: inline-flex; align-items: center; padding: 0.55rem 1rem;
+  border-radius: 999px; background: var(--surface);
+  border: 1px solid var(--border); color: var(--text-muted);
+  font-size: 0.85rem; font-weight: 500;
+  transition: all var(--dur) var(--ease);
 }
-.option-thumb {
-  height: 160px; border-radius: 12px 12px 0 0;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border-bottom: 1px solid #1e293b;
-  position: relative; overflow: hidden;
-}
-.option-thumb::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.15) 0%, transparent 100%);
-  opacity: 0; transition: opacity 300ms ease;
-}
-.option-card:hover .option-thumb::after { opacity: 1; }
-.option-info { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-.option-info h3 { font-size: 1.15rem; margin-bottom: 0.5rem; color: #f8fafc; }
-.option-info p { font-size: 0.875rem; color: #94a3b8; margin-bottom: 1rem; flex: 1; }
-.option-link {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  font-size: 0.85rem; font-weight: 600; color: #22d3ee;
-  border: 1px solid #22d3ee; border-radius: 8px;
-  padding: 0.5rem 1rem; transition: all 300ms ease;
-  width: fit-content; margin-top: auto;
-}
-.option-link:hover {
-  background: #22d3ee; color: #051015;
+.skill-tag:hover {
+  border-color: var(--accent); color: var(--accent);
+  background: var(--accent-soft); transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   Layouts — cada opção com seu próprio estilo escopo
+   Projetos
    ========================================================================== */
-.layout {
-  padding: clamp(4rem, 8vw, 8rem) 1rem;
-  border-top: 1px solid #1e293b;
+.projetos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
-
-/* Layout 1 — Minimalista Suíço */
-.layout-1 {
-  background: #f8fafc; color: #0f172a;
-  font-family: 'Space Grotesk', sans-serif;
+.projeto-card {
+  position: relative; border-radius: var(--radius);
+  border: 1px solid var(--border); background: var(--surface);
+  overflow: hidden; transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  box-shadow: var(--shadow-card);
+  display: flex; flex-direction: column;
 }
-.layout-1 h1, .layout-1 h2, .layout-1 h3 { font-family: 'Archivo', sans-serif; color: #0f172a; }
-.layout-1 p { color: #475569; }
-.layout-1 a { color: #2563eb; text-decoration: underline; text-underline-offset: 2px; }
-.layout-1 .hero-inner { text-align: center; max-width: 600px; margin: 0 auto; }
-.layout-1 .hero-inner h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
-.layout-1 .hero-inner .subtitle { font-size: 1.125rem; color: #64748b; margin-bottom: 2rem; line-height: 1.7; }
-.layout-1 .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.layout-1 .btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 0.85rem 1.5rem; border-radius: 0;
-  font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.95rem;
-  border: 1px solid #0f172a; background: #0f172a; color: #ffffff;
-  text-decoration: none; transition: all 200ms ease; cursor: pointer;
+.projeto-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: 0 16px 32px -8px rgba(34, 211, 238, 0.1);
 }
-.layout-1 .btn-outline { background: transparent; border-color: #0f172a; color: #0f172a; }
-.layout-1 .btn-primary:hover { background: #3f3f46; }
-.layout-1 .btn-outline:hover { background: #e2e8f0; }
-.layout-1 .stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 2rem 0; }
-.layout-1 .chip {
-  display: inline-flex; align-items: center; padding: 0.4rem 0.8rem;
-  font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 500;
-  border: 1px solid #e2e8f0; border-radius: 999px; background: #ffffff; color: #64748b;
+.projeto-card::before {
+  content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  opacity: 0; transition: opacity var(--dur) var(--ease);
 }
-.layout-1 .skills-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;
+.projeto-card:hover::before { opacity: 1; }
+.projeto-header { padding: 1.75rem 1.75rem 1rem; }
+.projeto-meta { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+.projeto-meta h3 { font-size: 1.15rem; margin: 0; }
+.projeto-tag {
+  font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem; border-radius: 6px; background: var(--accent-soft);
+  color: var(--accent); border: 1px solid rgba(34, 211, 238, 0.2);
 }
-.layout-1 .skill-card {
-  border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; background: #ffffff;
+.projeto-desc {
+  font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.65;
 }
-.layout-1 .skill-card h4 { font-size: 1rem; margin-bottom: 0.5rem; color: #0f172a; }
-.layout-1 .skill-card p { font-size: 0.875rem; color: #64748b; }
-.layout-1 .back {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  font-size: 0.9rem; font-weight: 500; color: #2563eb;
-  margin-top: 2rem; transition: color 200ms ease;
+.projeto-stack {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: auto;
 }
-.layout-1 .back:hover { color: #1d4ed8; }
-
-/* Layout 2 — Dark Mode Dev */
-.layout-2 {
-  background: #0f172a; color: #f8fafc;
-  font-family: 'IBM Plex Sans', sans-serif;
+.stack-chip {
+  font-size: 0.72rem; padding: 0.35rem 0.75rem; border-radius: 6px;
+  background: rgba(15, 17, 21, 0.6); border: 1px solid var(--border);
+  color: var(--text-muted); font-weight: 500;
+  transition: all var(--dur) var(--ease);
 }
-.layout-2 h1, .layout-2 h2, .layout-2 h3 { font-family: 'JetBrains Mono', monospace; color: #f8fafc; }
-.layout-2 p { color: #94a3b8; }
-.layout-2 .terminal-wrap {
-  border-radius: 12px; background: #1e293b; border: 1px solid #334155;
-  overflow: hidden; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.55); margin: 2rem 0;
-}
-.layout-2 .term-header {
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 16px; background: #1e293b; border-bottom: 1px solid #334155;
-}
-.layout-2 .dot { width: 12px; height: 12px; border-radius: 50%; }
-.layout-2 .dot.red { background: #ef4444; }
-.layout-2 .dot.yellow { background: #f59e0b; }
-.layout-2 .dot.green { background: #10b981; }
-.layout-2 .term-body {
-  padding: 16px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;
-  color: #cbd5e1; line-height: 1.5; min-height: 200px;
-}
-.layout-2 .term-body .prompt { color: #22d3ee; font-weight: 700; margin-right: 8px; }
-.layout-2 .term-body .cmd { color: #94a3b8; }
-.layout-2 .term-body .out { color: #22d3ee; opacity: 0.9; margin-left: 16px; }
-.layout-2 .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-.layout-2 .btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 0.85rem 1.5rem; border-radius: 6px;
-  font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 0.85rem;
-  border: 1px solid #334155; background: transparent; color: #f8fafc;
-  text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em;
-  transition: all 150ms ease; cursor: pointer;
-}
-.layout-2 .btn-primary { background: #22c55e; border-color: #22c55e; color: #0f172a; }
-.layout-2 .btn-primary:hover { background: #15b34a; }
-.layout-2 .btn-outline:hover { background: #334155; border-color: #f8fafc; }
-.layout-2 .back {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  font-size: 0.9rem; font-weight: 500; color: #22d3ee;
-  margin-top: 2rem; transition: color 150ms ease;
-}
-.layout-2 .back:hover { color: #f8fafc; }
-
-/* Layout 3 — Bento Grid */
-.layout-3 {
-  background: #fdf2f8; color: #831843;
-  font-family: 'Inter', sans-serif;
-}
-.layout-3 h1, .layout-3 h2, .layout-3 h3 { font-family: 'Russo One', sans-serif; color: #831843; text-transform: uppercase; letter-spacing: -0.01em; }
-.layout-3 p { color: #475569; }
-.layout-3 .hero-inner { text-align: center; }
-.layout-3 .hero-inner h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1rem; }
-.layout-3 .hero-inner .subtitle { font-size: 1.25rem; color: #475569; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.7; }
-.layout-3 .bento {
-  display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(180px, auto);
-  gap: 1rem; margin: 2rem 0;
-}
-.layout-3 .bento-item {
-  border: 2px solid #fbcfe8; border-radius: 12px; padding: 1.5rem;
-  background: #ffffff; display: flex; flex-direction: column;
-  transition: transform 250ms ease; box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-}
-.layout-3 .bento-item:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-.layout-3 .bento-wide { grid-column: span 2; }
-.layout-3 .bento-tall { grid-row: span 2; }
-.layout-3 .bento-item h4 { font-size: 1rem; margin-bottom: 0.5rem; color: #ec4899; }
-.layout-3 .bento-item p { font-size: 0.85rem; margin-bottom: 0; }
-.layout-3 .cta-group { text-align: center; margin-top: 2rem; }
-.layout-3 .btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 0.85rem 1.5rem; border-radius: 9999px;
-  font-family: 'Russo One', sans-serif; font-weight: 700; font-size: 0.85rem;
-  background: #ea580c; color: #000000; border: none; text-decoration: none;
-  text-transform: uppercase; letter-spacing: 0.1em; transition: all 200ms ease; cursor: pointer;
-}
-.layout-3 .btn:hover { background: #c2410c; transform: translateY(-2px); }
-.layout-3 .back {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  font-size: 0.9rem; font-weight: 500; color: #ec4899;
-  margin-top: 2rem; transition: color 200ms ease;
-}
-.layout-3 .back:hover { color: #be185d; }
-
-/* Layout 4 — Editorial Mono */
-.layout-4 {
-  background: #fafafc; color: #111827;
-  font-family: 'JetBrains Mono', monospace;
-}
-.layout-4 h1, .layout-4 h2, .layout-4 h3 { font-family: 'Inter', sans-serif; font-weight: 700; color: #111827; text-transform: uppercase; letter-spacing: -0.04em; }
-.layout-4 p { color: #6b7280; line-height: 1.75; }
-.layout-4 .hero-inner { border-bottom: 1px solid #e5e7eb; margin-bottom: 3rem; padding-bottom: 2rem; }
-.layout-4 .hero-inner h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; margin-bottom: 1rem; }
-.layout-4 .hero-inner .subtitle {
-  font-family: 'Inter', sans-serif; font-size: 1.125rem; font-weight: 500;
-  color: #6b7280; max-width: 64ch; line-height: 1.6; text-transform: none; letter-spacing: normal;
-}
-.layout-4 .intro {
-  font-size: 1.05rem; color: #111827; max-width: 64ch; margin: 0 auto 3rem auto;
-  line-height: 1.9; border-left: 3px solid #dc2626; padding-left: 1rem;
-}
-.layout-4 .stack {
-  display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 3rem 0;
-}
-.layout-4 .chip {
-  display: inline-flex; align-items: center; padding: 0.25rem 0.75rem;
-  font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600;
-  border: 1px solid #e5e7eb; border-radius: 4px; background: #ffffff;
-  color: #111827; text-transform: uppercase; letter-spacing: 0.05em;
-}
-.layout-4 .projects {
-  display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 3rem 0;
-}
-.layout-4 .project {
-  border: 1px solid #e5e7eb; border-left: 4px solid #dc2626; border-radius: 4px;
-  padding: 1.5rem; background: #ffffff; text-decoration: none; color: inherit;
-  display: block; transition: border-color 150ms ease, box-shadow 150ms ease;
-}
-.layout-4 .project:hover { border-left-color: #1d4ed8; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
-.layout-4 .project h3 { font-size: 1rem; margin-bottom: 0.5rem; text-transform: none; letter-spacing: normal; color: #1d4ed8; }
-.layout-4 .project p { font-size: 0.9rem; color: #6b7280; margin-bottom: 0.75rem; }
-.layout-4 .meta { font-size: 0.7rem; color: #6b7280; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.08em; }
-.layout-4 .cta { text-align: center; margin-top: 3rem; padding: 2rem 1rem; border-top: 1px solid #e5e7eb; }
-.layout-4 .btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 0.85rem 1.5rem; border-radius: 4px;
-  font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.85rem;
-  border: 1px solid #e5e7eb; background: transparent; color: #111827;
-  text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em;
-  transition: all 150ms ease; cursor: pointer;
-}
-.layout-4 .btn-primary { background: #dc2626; border-color: #dc2626; color: #ffffff; }
-.layout-4 .btn-primary:hover { background: #b91c1c; }
-.layout-4 .back {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  font-size: 0.9rem; font-weight: 500; color: #dc2626;
-  margin-top: 2rem; transition: color 150ms ease;
-}
-.layout-4 .back:hover { color: #111827; }
-
-/* Layout 5 — Conversão (Headhunter) */
-.layout-5 {
-  background: #ffffff; color: #111827;
-  font-family: 'Inter', sans-serif;
-}
-.layout-5 h1, .layout-5 h2, .layout-5 h3 { font-family: 'Inter', sans-serif; font-weight: 700; color: #111827; letter-spacing: -0.02em; }
-.layout-5 p { color: #6b7280; }
-.layout-5 .topbar {
+.stack-chip:hover { border-color: var(--accent); color: var(--accent); }
+.projeto-footer {
+  padding: 1rem 1.75rem 1.75rem; border-top: 1px solid var(--border);
   display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 0; margin-bottom: 3rem;
 }
-.layout-5 .logo { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.25rem; color: #111827; text-decoration: none; letter-spacing: -0.03em; }
-.layout-5 .topbar nav a { margin-left: 1.5rem; font-size: 0.9rem; font-weight: 500; color: #6b7280; }
-.layout-5 .hero-inner { text-align: center; border-bottom: 1px solid #e5e7eb; margin-bottom: 3rem; padding-bottom: 2rem; }
-.layout-5 .hero-inner h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); margin-bottom: 1rem; line-height: 1.05; }
-.layout-5 .hero-inner .subtitle {
-  font-size: 1.25rem; color: #6b7280; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.7;
-}
-.layout-5 .hero-actions {
-  display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
-}
-.layout-5 .stack-section { margin: 3rem 0; text-align: center; }
-.layout-5 .stack-section h2 { font-size: 1.5rem; margin-bottom: 1rem; }
-.layout-5 .stack {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 2rem;
-}
-.layout-5 .chip {
-  display: inline-flex; align-items: center; padding: 0.5rem 1rem;
-  font-size: 0.875rem; font-weight: 500; border: 1px solid #e5e7eb;
-  border-radius: 9999px; background: #f3f4f6; color: #111827;
-  transition: all 200ms ease;
-}
-.layout-5 .chip:hover { background: #2563eb; color: #ffffff; border-color: #2563eb; }
-.layout-5 .projects-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 3rem 0;
-}
-.layout-5 .project-card {
-  border: 1px solid #e5e7eb; border-radius: 8px; padding: 1.5rem;
-  background: #f9fafb; transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
-  text-decoration: none; color: inherit; display: block;
-}
-.layout-5 .project-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.06); border-color: #2563eb; }
-.layout-5 .project-card h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
-.layout-5 .project-card p { font-size: 0.9rem; color: #6b7280; margin-bottom: 1rem; line-height: 1.6; }
-.layout-5 .tags { font-size: 0.75rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
-.layout-5 .how {
-  background: #f3f4f6; border-radius: 8px; padding: 2rem; margin: 3rem 0; text-align: center;
-}
-.layout-5 .how h2 { margin-bottom: 1.5rem; }
-.layout-5 .how-list { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; }
-.layout-5 .how-item { max-width: 200px; }
-.layout-5 .how-item h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-.layout-5 .how-item p { font-size: 0.875rem; color: #6b7280; }
-.layout-5 .cta {
-  margin-top: 3rem; padding: 3rem 1rem; text-align: center;
-  background: #f3f4f6; border-radius: 8px;
-}
-.layout-5 .cta h2 { font-size: 2rem; margin-bottom: 1rem; }
-.layout-5 .cta p { color: #6b7280; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
-.layout-5 .btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 0.85rem 1.5rem; border-radius: 8px;
-  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;
-  border: none; background: #2563eb; color: #ffffff;
-  text-decoration: none; transition: background 200ms ease, transform 200ms ease; cursor: pointer;
-}
-.layout-5 .btn:hover { background: #1d4ed8; transform: translateY(-1px); }
-.layout-5 .btn-outline {
-  background: transparent; border: 1px solid #e5e7eb; color: #111827; margin-left: 0.75rem;
-}
-.layout-5 .btn-outline:hover { background: #f3f4f6; border-color: #111827; }
-.layout-5 .back {
+.projeto-link {
   display: inline-flex; align-items: center; gap: 0.4rem;
-  font-size: 0.9rem; font-weight: 500; color: #2563eb;
-  margin-top: 2rem; transition: color 200ms ease;
+  font-size: 0.85rem; font-weight: 700; color: var(--accent);
+  transition: gap var(--dur) var(--ease), color var(--dur) var(--ease);
 }
-.layout-5 .back:hover { color: #1d4ed8; }
+.projeto-link:hover { gap: 0.7rem; color: var(--accent-2); }
+
+/* ==========================================================================
+   Como trabalho / Transparência de IA
+   ========================================================================== */
+.como-trabalho {
+  background: linear-gradient(180deg, var(--surface) 0%, rgba(15, 17, 21, 0.3) 100%);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 6vw, 4rem);
+  margin: clamp(4rem, 8vw, 6rem) 0;
+  text-align: center;
+  box-shadow: var(--shadow-glow);
+}
+.como-trabalho h2 { margin-bottom: 1rem; }
+.como-trabalho p { color: var(--text-muted); margin-bottom: 2.5rem; max-width: 60ch; margin-left: auto; margin-right: auto; }
+.como-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;
+}
+.como-item {
+  background: var(--surface-hover); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 1.5rem;
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.como-item:hover { border-color: var(--accent); transform: translateY(-3px); }
+.como-item h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--accent); }
+.como-item p { font-size: 0.875rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+/* ==========================================================================
+   CTA final
+   ========================================================================== */
+.cta-final { text-align: center; margin-top: clamp(4rem, 8vw, 6rem); }
+.cta-final h2 { margin-bottom: 1rem; }
+.cta-final p { color: var(--text-muted); margin-bottom: 2rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 /* ==========================================================================
    Footer
    ========================================================================== */
 footer {
-  border-top: 1px solid #1e293b; padding: 3rem 1rem 2rem;
-  text-align: center; color: #64748b; font-size: 0.85rem;
+  border-top: 1px solid var(--border); padding: 3rem 1rem 2rem;
+  text-align: center; color: var(--text-dim); font-size: 0.85rem;
 }
+
+/* ==========================================================================
+   Animações de scroll
+   ========================================================================== */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 700ms ease, transform 700ms ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
 
 /* ==========================================================================
    Responsivo
    ========================================================================== */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+  .sobre-grid { grid-template-columns: 1fr 1fr; }
+  .projetos-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-actions { justify-content: center; }
+}
+@media (max-width: 767px) {
   .nav-links { display: none; }
-  .bento { grid-template-columns: 1fr; }
-  .layout-3 .bento-wide, .layout-3 .bento-tall { grid-column: span 1; grid-row: span 1; }
-  .options-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn { width: 100%; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {
-  * { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
@@ -418,363 +328,222 @@ footer {
       Alex Rabelo
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#opcoes">Opções</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#como-trabalho">Como trabalho</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
+    <a href="https://www.linkedin.com/in/alexrabelo/" target="_blank" rel="noopener" class="nav-cta">LinkedIn</a>
   </div>
 </nav>
 
-<!-- =================== HERO — SELETOR =================== -->
-<header class="hero reveal" id="inicio">
+<header class="hero reveal reveal-delay-1">
   <div class="container">
-    <h1>Escolha seu layout</h1>
-    <p class="hero-sub">
-      Cinco propostas de design para o portfólio de Alex Rabelo — Cloud, DevOps &amp; SRE.<br>
-      Cada opção tem personalidade visual própria. Clique em qualquer uma para visualizar.
-    </p>
-
-    <div class="options-grid">
-      <!-- Opção 1 -->
-      <article class="option-card reveal">
-        <div class="option-thumb" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);"></div>
-        <div class="option-info">
-          <h3>1. Minimalista Suíço</h3>
-          <p>Espaço em branco, tipografia como protagonista (Archivo + Space Grotesk), acento azul. Foco total na leitura e credibilidade.</p>
-          <a href="#layout-1" class="option-link">Ver layout →</a>
-        </div>
-      </article>
-
-      <!-- Opção 2 -->
-      <article class="option-card reveal">
-        <div class="option-thumb" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);"></div>
-        <div class="option-info">
-          <h3>2. Dark Mode Dev</h3>
-          <p>Fundo escuro OLED, acento verde, tipografia JetBrains Mono + IBM Plex Sans. Cara de desenvolvedor.</p>
-          <a href="#layout-2" class="option-link">Ver layout →</a>
-        </div>
-      </article>
-
-      <!-- Opção 3 -->
-      <article class="option-card reveal">
-        <div class="option-thumb" style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);"></div>
-        <div class="option-info">
-          <h3>3. Bento Grid</h3>
-          <p>Grade assimétrica moderna, cards com acentos rosa e laranja. Destaque visual para o Lab 1.</p>
-          <a href="#layout-3" class="option-link">Ver layout →</a>
-        </div>
-      </article>
-
-      <!-- Opção 4 -->
-      <article class="option-card reveal">
-        <div class="option-thumb" style="background: linear-gradient(135deg, #fafafc 0%, #f3f4f6 100%);"></div>
-        <div class="option-info">
-          <h3>4. Editorial Mono</h3>
-          <p>Coluna única, fonte Inter + JetBrains Mono, aspecto de documento/manifesto técnico. Atenção ao detalhe.</p>
-          <a href="#layout-4" class="option-link">Ver layout →</a>
-        </div>
-      </article>
-
-      <!-- Opção 5 -->
-      <article class="option-card reveal">
-        <div class="option-thumb" style="background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);"></div>
-        <div class="option-info">
-          <h3>5. Conversão Headhunter</h3>
-          <p>Topbar com navegação, hero com CTA direto, stack em chips, seção "Como trabalho". Foco em contato.</p>
-          <a href="#layout-5" class="option-link">Ver layout →</a>
-        </div>
-      </article>
+    <div class="hero-content">
+      <h1>Alex Rabelo</h1>
+      <p class="hero-sub">
+        Especialista em Infraestrutura Cloud, DevOps &amp; SRE com foco na junção de TI + IA.<br>
+        Linux (RHEL, Debian, Ubuntu), AWS, Azure, Terraform, Kubernetes, Docker, CI/CD e automação de infraestrutura com agentes de IA.
+      </p>
+      <div class="hero-actions">
+        <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+        <a href="https://github.com/AlexRabelo" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- =================== LAYOUT 1 — Minimalista Suíço =================== -->
-<section id="layout-1" class="layout layout-1 reveal">
+<section id="sobre" class="section sobre reveal reveal-delay-1">
   <div class="container">
-    <div class="hero-inner">
-      <h1>Alex Rabelo</h1>
-      <p class="subtitle">Especialista em Infraestrutura Cloud, DevOps &amp; SRE.<br>São Paulo, SP · Linux · AWS · Azure · Terraform · Kubernetes · Shell Script</p>
+    <div class="section-header">
+      <h2>Sobre mim</h2>
+      <p>Profissional de TI com experiência em ambientes de missão crítica, datacenter e cloud computing. Arquitetura, operações e automação com IA — sempre com revisão humana.</p>
     </div>
-
-    <div class="cta-group">
-      <a href="https://www.linkedin.com/in/alexrabelo/" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn</a>
-      <a href="https://github.com/AlexRabelo" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
-    </div>
-
-    <div class="stack">
-      <span class="chip">Linux</span>
-      <span class="chip">AWS</span>
-      <span class="chip">Azure</span>
-      <span class="chip">Terraform</span>
-      <span class="chip">Docker</span>
-      <span class="chip">Kubernetes</span>
-      <span class="chip">Shell Script</span>
-      <span class="chip">Python</span>
-      <span class="chip">Observabilidade</span>
-      <span class="chip">Ansible</span>
-    </div>
-
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h4>Atuação</h4>
-        <p>Administração Linux (RHEL, CentOS, Debian, Ubuntu), automação de infraestrutura, IaC com Terraform, containers Docker e Kubernetes, pipelines CI/CD e observabilidade (Zabbix, Dynatrace, Prometheus, Grafana).</p>
-      </div>
-      <div class="skill-card">
-        <h4>Abordagem</h4>
-        <p>Domínio técnico de infraestrutura + uso real de IA para automação — sempre com transparência: eu arquiteto, testo e opero. A IA é copiloto, nunca autora.</p>
-      </div>
-      <div class="skill-card">
-        <h4>Experiência</h4>
-        <p>Especialista em Infraestrutura Cloud, DevOps &amp; SRE na Dexian Brasil. Mentor voluntário na Escola da Nuvem. Formação pela Universidade Presbiteriana Mackenzie.</p>
-      </div>
-    </div>
-
-    <a href="#inicio" class="back">← Voltar às opções</a>
-  </div>
-</section>
-
-<!-- =================== LAYOUT 2 — Dark Mode Dev =================== -->
-<section id="layout-2" class="layout layout-2 reveal">
-  <div class="container">
-    <div class="hero-inner" style="text-align: center;">
-      <h1 style="font-size: clamp(2rem, 5vw, 3rem);">Alex Rabelo</h1>
-      <p class="subtitle" style="max-width: 560px; margin: 0 auto 2rem auto;">Infraestrutura Cloud · DevOps · SRE<br>São Paulo, SP · Linux · AWS · Azure · Terraform · Kubernetes · Shell Script</p>
-    </div>
-
-    <div class="terminal-wrap">
-      <div class="term-header">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
-      </div>
-      <div class="term-body">
-        <div><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">cat portfolio/sobre.txt</span></div>
-        <div class="dim">Infraestrutura · Cloud · DevOps · SRE · IA</div>
-        <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">./deploy.sh --env producao --regiao sao-paulo</span></div>
-        <div class="out" style="margin-top:6px;">[OK] provisionado em 4m 12s</div>
-        <div class="out">[OK] aplicações saudáveis</div>
-      </div>
-    </div>
-
-    <div class="cta-group">
-      <a href="https://www.linkedin.com/in/alexrabelo/" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn</a>
-      <a href="https://github.com/AlexRabelo" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
-    </div>
-
-    <a href="#inicio" class="back">← Voltar às opções</a>
-  </div>
-</section>
-
-<!-- =================== LAYOUT 3 — Bento Grid =================== -->
-<section id="layout-3" class="layout layout-3 reveal">
-  <div class="container">
-    <div class="hero-inner">
-      <h1>Alex Rabelo</h1>
-      <p class="subtitle">Especialista em Infraestrutura Cloud, DevOps &amp; SRE.<br>São Paulo, SP · Linux · AWS · Azure · Terraform · Kubernetes</p>
-    </div>
-
-    <div class="bento">
-      <div class="bento-item bento-wide">
-        <h4>Sobre mim</h4>
-        <p>Profissional de TI com experiência em ambientes de missão crítica, datacenter e cloud computing. Arquitetura, operações e automação com IA.</p>
-      </div>
-      <div class="bento-item">
-        <h4>Linux</h4>
-        <p>RHEL, CentOS, Debian, Ubuntu — administração avançada.</p>
-      </div>
-      <div class="bento-item">
-        <h4>Cloud</h4>
-        <p>AWS e Azure — EC2, S3, Lambda, CloudFormation, CodePipeline.</p>
-      </div>
-      <div class="bento-item bento-tall">
-        <h4>IaC &amp; Automação</h4>
-        <p>Terraform, Ansible, Jenkins, GitHub Actions, PowerShell, Bash.</p>
-      </div>
-      <div class="bento-item">
-        <h4>Containers</h4>
-        <p>Docker e Kubernetes — deploy e orquestração.</p>
-      </div>
-      <div class="bento-item">
-        <h4>Observabilidade</h4>
-        <p>Zabbix, Dynatrace, Prometheus, Grafana.</p>
-      </div>
-    </div>
-
-    <div class="cta-group">
-      <a href="https://www.linkedin.com/in/alexrabelo/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
-    </div>
-
-    <a href="#inicio" class="back">← Voltar às opções</a>
-  </div>
-</section>
-
-<!-- =================== LAYOUT 4 — Editorial Mono =================== -->
-<section id="layout-4" class="layout layout-4 reveal">
-  <div class="container">
-    <div class="hero-inner">
-      <h1>Alex Rabelo</h1>
-      <p class="subtitle">Especialista em Infraestrutura Cloud, DevOps &amp; SRE.<br>São Paulo, SP · Linux · AWS · Azure · Terraform · Kubernetes · Shell Script</p>
-    </div>
-
-    <div class="intro">
-      Profissional de TI com experiência em ambientes de missão crítica, datacenter e cloud computing. Arquitetura, operações e automação com IA — sempre com revisão humana.
-    </div>
-
-    <div class="stack">
-      <span class="chip">Linux</span>
-      <span class="chip">AWS</span>
-      <span class="chip">Azure</span>
-      <span class="chip">Terraform</span>
-      <span class="chip">Docker</span>
-      <span class="chip">Kubernetes</span>
-      <span class="chip">Shell Script</span>
-      <span class="chip">Python</span>
-      <span class="chip">Observabilidade</span>
-      <span class="chip">Ansible</span>
-    </div>
-
-    <div class="projects">
-      <a href="https://github.com/AlexRabelo/lab-redhat-wsl2-opencode" target="_blank" rel="noopener" class="project">
-        <h3>Red Hat no WSL2</h3>
-        <p>Laboratório de administração Linux: RHEL rodando no WSL2 com systemd, rede e provisionamento idempotente.</p>
-        <span class="meta">Lab 1 · Base</span>
-      </a>
-      <a href="https://github.com/AlexRabelo/shellscript-sre-toolkit" target="_blank" rel="noopener" class="project">
-        <h3>Shell Script SRE Toolkit</h3>
-        <p>Scripts Bash para produção com CI (ShellCheck + Bats), strict mode e logging.</p>
-        <span class="meta">Lab 2 · Automação</span>
-      </a>
-      <a href="https://github.com/AlexRabelo/iac-terraform-ai-review" target="_blank" rel="noopener" class="project">
-        <h3>IaC Terraform + LLM</h3>
-        <p>Pipeline que revisa planos Terraform com LLM antes do apply.</p>
-        <span class="meta">Lab 3 · DevSecOps</span>
-      </a>
-      <a href="https://github.com/AlexRabelo/mlops-k8s-recomendacao" target="_blank" rel="noopener" class="project">
-        <h3>MLOps Kubernetes</h3>
-        <p>Deploy de modelo de ML em K8s com CI/CD e observabilidade.</p>
-        <span class="meta">Lab 4 · MLOps</span>
-      </a>
-      <a href="https://github.com/AlexRabelo/llmops-rag-infra" target="_blank" rel="noopener" class="project">
-        <h3>LLMOps RAG</h3>
-        <p>Chat self-service com RAG sobre documentação e APIs de cloud.</p>
-        <span class="meta">Lab 5 · IA</span>
-      </a>
-    </div>
-
-    <div class="cta">
-      <a href="https://www.linkedin.com/in/alexrabelo/" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn</a>
-      <a href="https://github.com/AlexRabelo" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
-    </div>
-
-    <a href="#inicio" class="back">← Voltar às opções</a>
-  </div>
-</section>
-
-<!-- =================== LAYOUT 5 — Conversão Headhunter =================== -->
-<section id="layout-5" class="layout layout-5 reveal">
-  <div class="container">
-    <div class="topbar">
-      <a href="#" class="logo">Alex Rabelo</a>
-      <nav>
-        <a href="#layout-5-sobre">Sobre</a>
-        <a href="#layout-5-projetos">Projetos</a>
-      </nav>
-    </div>
-
-    <div class="hero-inner">
-      <h1>Infraestrutura Cloud, DevOps &amp; SRE com IA</h1>
-      <p class="subtitle">Especialista em Linux, Terraform, Kubernetes e automação de infraestrutura. São Paulo, SP.</p>
-      <div class="hero-actions">
-        <a href="https://www.linkedin.com/in/alexrabelo/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
-        <a href="https://github.com/AlexRabelo" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
-      </div>
-    </div>
-
-    <div class="stack-section" id="layout-5-sobre">
-      <h2>Stack técnica</h2>
-      <div class="stack">
-        <span class="chip">Linux (RHEL, Debian, Ubuntu)</span>
-        <span class="chip">AWS · Azure</span>
-        <span class="chip">Terraform</span>
-        <span class="chip">Docker · Kubernetes</span>
-        <span class="chip">GitHub Actions · Jenkins</span>
-        <span class="chip">Prometheus · Grafana · Zabbix</span>
-        <span class="chip">Python · Shell Script</span>
-        <span class="chip">IA para Infra</span>
-        <span class="chip">RAG · LLMOps</span>
-      </div>
-    </div>
-
-    <div class="projects-grid" id="layout-5-projetos">
-      <a href="https://github.com/AlexRabelo/lab-redhat-wsl2-opencode" target="_blank" rel="noopener" class="project-card">
-        <h3>Red Hat no WSL2</h3>
-        <p>Laboratório de administração Linux: RHEL no WSL2 com systemd, rede e script de provisionamento idempotente.</p>
-        <span class="tags">Linux · WSL2 · Shell Script</span>
-      </a>
-      <a href="https://github.com/AlexRabelo/shellscript-sre-toolkit" target="_blank" rel="noopener" class="project-card">
-        <h3>Shell Script SRE Toolkit</h3>
-        <p>Scripts Bash para produção com CI (ShellCheck + Bats), strict mode e logging.</p>
-        <span class="tags">Bash · CI · SRE</span>
-      </a>
-      <a href="https://github.com/AlexRabelo/iac-terraform-ai-review" target="_blank" rel="noopener" class="project-card">
-        <h3>IaC Terraform + LLM</h3>
-        <p>Pipeline que revisa planos Terraform com LLM antes do apply.</p>
-        <span class="tags">Terraform · AWS · LLM</span>
-      </a>
-      <a href="https://github.com/AlexRabelo/mlops-k8s-recomendacao" target="_blank" rel="noopener" class="project-card">
-        <h3>MLOps Kubernetes</h3>
-        <p>Deploy de modelo de ML em K8s com CI/CD e observabilidade.</p>
-        <span class="tags">Kubernetes · MLOps · Python</span>
-      </a>
-      <a href="https://github.com/AlexRabelo/llmops-rag-infra" target="_blank" rel="noopener" class="project-card">
-        <h3>LLMOps RAG</h3>
-        <p>Chat self-service com RAG sobre documentação e APIs de cloud.</p>
-        <span class="tags">LLMOps · RAG · AWS</span>
-      </a>
-    </div>
-
-    <div class="how">
-      <h2>Como trabalho</h2>
-      <div class="how-list">
-        <div class="how-item">
-          <h3>Arquitetura própria</h3>
-          <p>Eu projeto a infraestrutura. A IA é copiloto, nunca autora.</p>
-        </div>
-        <div class="how-item">
-          <h3>Testado e operado</h3>
-          <p>Todo código é revisado, testado e rodado por mim antes de publicar.</p>
-        </div>
-        <div class="how-item">
-          <h3>Transparência total</h3>
-          <p>Cada repositório tem a seção "Como este projeto foi construído".</p>
+    <div class="sobre-grid">
+      <div class="sobre-texto reveal reveal-delay-2">
+        <h3>Atuação</h3>
+        <p>Atuo com administração Linux (RHEL, CentOS, Debian, Ubuntu), automação de infraestrutura, Infraestrutura como Código com Terraform, containers Docker e Kubernetes, pipelines CI/CD e observabilidade (Zabbix, Dynatrace, Prometheus, Grafana).</p>
+        <p>Minha abordagem une domínio técnico de infraestrutura com uso real de IA para automação — sempre com transparência: eu arquiteto, testo e opero. A IA é copiloto, nunca autora.</p>
+        <h3 style="margin-top: 1.5rem;">Competências técnicas</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Linux (RHEL, Debian, Ubuntu)</span>
+          <span class="skill-tag">AWS · Azure</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Docker · Kubernetes</span>
+          <span class="skill-tag">GitHub Actions · Jenkins</span>
+          <span class="skill-tag">Shell Script · Bash</span>
+          <span class="skill-tag">PowerShell</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Observabilidade</span>
+          <span class="skill-tag">Ansible</span>
+          <span class="skill-tag">IA para Infra</span>
+          <span class="skill-tag">RAG · LLMOps</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="cta">
-      <h2>Vamos conversar</h2>
-      <p>Especialista em Infraestrutura Cloud, DevOps &amp; SRE com foco na junção de TI + IA.</p>
-      <a href="https://www.linkedin.com/in/alexrabelo/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+<section id="projetos" class="section projetos reveal reveal-delay-1">
+  <div class="container">
+    <div class="section-header">
+      <h2>Projetos em destaque</h2>
+      <p>Cada lab está documentado em seu próprio repositório no GitHub, com seção obrigatória de transparência de IA.</p>
+    </div>
+    <div class="projetos-grid">
+      <article class="projeto-card reveal reveal-delay-1">
+        <div class="projeto-header">
+          <div class="projeto-meta">
+            <h3>Red Hat no WSL2</h3>
+            <span class="projeto-tag">Lab 1 · Base</span>
+          </div>
+          <p class="projeto-desc">Laboratório de administração Linux: Red Hat Enterprise Linux rodando no WSL2 com configuração de systemd, rede, integração com VS Code remoto e script de provisionamento idempotente.</p>
+          <div class="projeto-stack">
+            <span class="stack-chip">RHEL</span>
+            <span class="stack-chip">WSL2</span>
+            <span class="stack-chip">Shell Script</span>
+            <span class="stack-chip">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="projeto-footer">
+          <a href="https://github.com/AlexRabelo/lab-redhat-wsl2-opencode" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="projeto-card reveal reveal-delay-2">
+        <div class="projeto-header">
+          <div class="projeto-meta">
+            <h3>Shell Script SRE Toolkit</h3>
+            <span class="projeto-tag">Lab 2 · Automação</span>
+          </div>
+          <p class="projeto-desc">Coleção de scripts Bash para produção com CI (ShellCheck + Bats), strict mode, logging estruturado e templates seguros para ambientes de missão crítica.</p>
+          <div class="projeto-stack">
+            <span class="stack-chip">Bash</span>
+            <span class="stack-chip">ShellCheck</span>
+            <span class="stack-chip">Bats</span>
+            <span class="stack-chip">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="projeto-footer">
+          <a href="https://github.com/AlexRabelo/shellscript-sre-toolkit" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="projeto-card reveal reveal-delay-3">
+        <div class="projeto-header">
+          <div class="projeto-meta">
+            <h3>IaC Terraform + Revisor de LLM</h3>
+            <span class="projeto-tag">Lab 3 · DevSecOps</span>
+          </div>
+          <p class="projeto-desc">Pipeline que revisa planos Terraform com LLM antes do apply, detectando riscos de segurança e custo antes de qualquer alteração na infraestrutura.</p>
+          <div class="projeto-stack">
+            <span class="stack-chip">Terraform</span>
+            <span class="stack-chip">AWS</span>
+            <span class="stack-chip">LLM</span>
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="projeto-footer">
+          <a href="https://github.com/AlexRabelo/iac-terraform-ai-review" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="projeto-card reveal reveal-delay-1">
+        <div class="projeto-header">
+          <div class="projeto-meta">
+            <h3>MLOps: Recomendação em Kubernetes</h3>
+            <span class="projeto-tag">Lab 4 · MLOps</span>
+          </div>
+          <p class="projeto-desc">Deploy de modelo de machine learning em Kubernetes com CI/CD, monitoramento e observabilidade para cargas de trabalho de IA.</p>
+          <div class="projeto-stack">
+            <span class="stack-chip">Kubernetes</span>
+            <span class="stack-chip">MLOps</span>
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">Docker</span>
+          </div>
+        </div>
+        <div class="projeto-footer">
+          <a href="https://github.com/AlexRabelo/mlops-k8s-recomendacao" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="projeto-card reveal reveal-delay-2">
+        <div class="projeto-header">
+          <div class="projeto-meta">
+            <h3>LLMOps: RAG de Documentação de Infra</h3>
+            <span class="projeto-tag">Lab 5 · IA</span>
+          </div>
+          <p class="projeto-desc">Plataforma de chat self-service que responde sobre infraestrutura usando RAG sobre documentação e APIs de cloud, servindo como base de conhecimento da equipe SRE.</p>
+          <div class="projeto-stack">
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">RAG</span>
+            <span class="stack-chip">AWS</span>
+            <span class="stack-chip">Docker</span>
+            <span class="stack-chip">Kubernetes</span>
+          </div>
+        </div>
+        <div class="projeto-footer">
+          <a href="https://github.com/AlexRabelo/llmops-rag-infra" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center; margin-top: 2rem;">
+      <a href="https://github.com/AlexRabelo?tab=repositories" target="_blank" rel="noopener" class="btn btn-outline">Ver todos os repositórios</a>
+    </div>
+  </div>
+</section>
+
+<section id="como-trabalho" class="section como-trabalho reveal reveal-delay-1">
+  <div class="container">
+    <h2>Como trabalho</h2>
+    <p>Regra de ouro: nunca publicar algo que não consigo explicar linha por linha, rodar sozinho e defender em entrevista técnica.</p>
+    <div class="como-grid">
+      <div class="como-item reveal reveal-delay-1">
+        <h3>Arquitetura própria</h3>
+        <p>Eu projeto a infraestrutura. A IA é copiloto, nunca autora.</p>
+      </div>
+      <div class="como-item reveal reveal-delay-2">
+        <h3>Testado e operado</h3>
+        <p>Todo código é revisado, testado e rodado por mim antes de publicar.</p>
+      </div>
+      <div class="como-item reveal reveal-delay-3">
+        <h3>Transparência total</h3>
+        <p>Cada repositório tem a seção "Como este projeto foi construído" com o papel da IA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="section cta-final reveal reveal-delay-1">
+  <div class="container">
+    <h2>Vamos conversar</h2>
+    <p>Especialista em Infraestrutura Cloud, DevOps &amp; SRE com foco na junção de TI + IA. Disponível para conversar sobre plataformas de IA, SRE, DevOps e Cloud.</p>
+    <div class="cta-actions">
+      <a href="https://www.linkedin.com/in/alexrabelo/" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn</a>
       <a href="https://github.com/AlexRabelo" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
     </div>
-
-    <a href="#inicio" class="back">← Voltar às opções</a>
   </div>
 </section>
 
 <footer>
   <p>Alex Rabelo · Cloud, DevOps &amp; SRE · São Paulo, SP</p>
-  <p style="margin-top:0.5rem; font-size:0.75rem; color:#64748b;">Escolha um dos 5 layouts acima. Todos construídos com atenção a cada linha de código.</p>
+  <p style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-dim);">Construído com atenção a cada linha de código. Sem bibliotecas externas pesadas.</p>
 </footer>
 
 <script>
-/* Navbar scroll */
+/* ==========================================================================
+   Navbar scroll effect
+   ========================================================================== */
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.pageYOffset > 40) navbar.classList.add('scrolled');
   else navbar.classList.remove('scrolled');
 }, { passive: true });
 
-/* Smooth scroll */
+/* ==========================================================================
+   Smooth scroll para âncoras
+   ========================================================================== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
@@ -785,7 +554,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/* Reveal animation */
+/* ==========================================================================
+   IntersectionObserver — fade-in ao scroll
+   ========================================================================== */
 const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -80px 0px' };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -797,7 +568,9 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/* Reduced motion */
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('.reveal').forEach(el => {
     el.style.opacity = '1';
