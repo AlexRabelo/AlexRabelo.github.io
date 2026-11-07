@@ -3,9 +3,10 @@ layout: home
 title: Início
 ---
 
-# Alex Rabelo
-**Especialista em Infraestrutura Cloud, DevOps & SRE**  
-São Paulo, SP | Linux | AWS | Azure | Terraform | Kubernetes | Shell Script | OpenCode
+<div class="hero">
+  <h1>Alex Rabelo</h1>
+  <p class="subtitle">Especialista em Infraestrutura Cloud, DevOps &amp; SRE<br>São Paulo, SP &nbsp;|&nbsp; Linux &nbsp;|&nbsp; AWS &nbsp;|&nbsp; Terraform &nbsp;|&nbsp; Kubernetes &nbsp;|&nbsp; Shell Script &nbsp;|&nbsp; OpenCode</p>
+</div>
 
 ---
 
@@ -63,4 +64,8 @@ Minha abordagem une domínio técnico de infraestrutura com uso real de IA para 
 
 ## Vamos conversar
 
-[LinkedIn](https://www.linkedin.com/in/alexrabelo/) · [GitHub](https://github.com/AlexRabelo) · contato@alexrabelo.com.br
+<div class="cta">
+  <a href="https://www.linkedin.com/in/alexrabelo/" class="btn btn-primary">LinkedIn</a>
+  <a href="https://github.com/AlexRabelo" class="btn btn-outline">GitHub</a>
+  <a href="mailto:contato@alexrabelo.com.br" class="btn btn-outline">contato@alexrabelo.com.br</a>
+</div>
