@@ -249,7 +249,7 @@ p {
 
 .hero-visual {
   width: 100%;
-  max-width: 520px;
+  max-width: 760px;
   margin: 0 auto;
   position: relative;
 }
@@ -261,6 +261,7 @@ p {
   border: 1px solid var(--border);
   overflow: hidden;
   box-shadow: var(--shadow-card);
+  min-height: 420px;
 }
 
 .terminal-header {
@@ -283,11 +284,12 @@ p {
 .dot.green { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
 
 .terminal-body {
-  padding: 16px;
+  padding: 24px;
   font-family: 'Source Code Pro', monospace;
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: #cbd5e1;
+  min-height: 340px;
 }
 
 .terminal-body .prompt { color: var(--accent); font-weight: 700; margin-right: 8px; }
@@ -721,15 +723,15 @@ footer {
         <p>Minha abordagem une domínio técnico de infraestrutura com uso real de IA para automação — sempre com transparência: eu arquiteto, testo e opero. A IA é copiloto, nunca autora.</p>
         <h3>Competências técnicas</h3>
         <ul>
-          <li class="skill-tag">Linux (RHEL, Debian, SUSE)</li>
+          <li class="skill-tag">Linux (RHEL, CentOS, Debian, SUSE)</li>
           <li class="skill-tag">AWS · Azure</li>
-          <li class="skill-tag">Terraform · OpenTofu</li>
+          <li class="skill-tag">Terraform</li>
           <li class="skill-tag">Docker · Kubernetes</li>
           <li class="skill-tag">GitHub Actions · Jenkins</li>
           <li class="skill-tag">Shell Script · Bash</li>
+          <li class="skill-tag">PowerShell</li>
           <li class="skill-tag">Python</li>
           <li class="skill-tag">Observabilidade</li>
-          <li class="skill-tag">OpenCode · IA para Infra</li>
           <li class="skill-tag">Ansible · Puppet · CFEngine</li>
         </ul>
       </div>
@@ -741,21 +743,20 @@ footer {
   <div class="container">
     <div class="section-header">
       <h2>Projetos em destaque</h2>
-      <p>Cada lab está documentado em seu próprio repositório, com seção obrigatória de transparência de IA.</p>
+      <p>Cada lab está documentado em seu próprio repositório no GitHub.</p>
     </div>
     <div class="projetos-grid">
       <article class="projeto-card reveal reveal-delay-1">
         <div class="acento-esquerda"></div>
         <div class="projeto-header">
           <div class="projeto-meta">
-            <h3>Red Hat em WSL2 + OpenCode</h3>
+            <h3>Red Hat no WSL2</h3>
             <span class="projeto-tag">Lab 1 · Base</span>
           </div>
-          <p class="projeto-desc">Laboratório de administração Linux: Red Hat Enterprise Linux rodando no WSL2 com OpenCode como agente de apoio para tarefas de infraestrutura. Configuração de systemd, rede, VS Code remoto e script de provisionamento idempotente.</p>
+          <p class="projeto-desc">Laboratório de administração Linux: Red Hat Enterprise Linux rodando no WSL2 com configuração de systemd, rede, integração com VS Code remoto e script de provisionamento idempotente.</p>
           <div class="projeto-stack">
             <span class="stack-chip">RHEL</span>
             <span class="stack-chip">WSL2</span>
-            <span class="stack-chip">OpenCode</span>
             <span class="stack-chip">Shell Script</span>
             <span class="stack-chip">GitHub Actions</span>
           </div>
@@ -766,6 +767,26 @@ footer {
       </article>
 
       <article class="projeto-card reveal reveal-delay-2">
+        <div class="acento-esquerda"></div>
+        <div class="projeto-header">
+          <div class="projeto-meta">
+            <h3>Shell Script SRE Toolkit</h3>
+            <span class="projeto-tag">Lab 2 · Automação</span>
+          </div>
+          <p class="projeto-desc">Coleção de scripts Bash para produção com CI (ShellCheck + Bats), strict mode, logging estruturado e templates seguros para ambientes de missão crítica.</p>
+          <div class="projeto-stack">
+            <span class="stack-chip">Bash</span>
+            <span class="stack-chip">ShellCheck</span>
+            <span class="stack-chip">Bats</span>
+            <span class="stack-chip">GitHub Actions</span>
+          </div>
+        </div>
+        <div class="projeto-footer">
+          <a href="https://github.com/AlexRabelo/shellscript-sre-toolkit" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="projeto-card reveal reveal-delay-3">
         <div class="acento-esquerda"></div>
         <div class="projeto-header">
           <div class="projeto-meta">
@@ -786,7 +807,27 @@ footer {
         </div>
       </article>
 
-      <article class="projeto-card reveal reveal-delay-3">
+      <article class="projeto-card reveal reveal-delay-1">
+        <div class="acento-esquerda"></div>
+        <div class="projeto-header">
+          <div class="projeto-meta">
+            <h3>MLOps: Recomendação em Kubernetes</h3>
+            <span class="projeto-tag">Lab 4 · MLOps</span>
+          </div>
+          <p class="projeto-desc">Deploy de modelo de machine learning em Kubernetes com CI/CD, monitoramento e observabilidade para cargas de trabalho de IA.</p>
+          <div class="projeto-stack">
+            <span class="stack-chip">Kubernetes</span>
+            <span class="stack-chip">MLOps</span>
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">Docker</span>
+          </div>
+        </div>
+        <div class="projeto-footer">
+          <a href="https://github.com/AlexRabelo/mlops-k8s-recomendacao" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="projeto-card reveal reveal-delay-2">
         <div class="acento-esquerda"></div>
         <div class="projeto-header">
           <div class="projeto-meta">
@@ -872,7 +913,7 @@ footer {
 </section>
 
 <footer>
-  <p>Alex Rabelo · Cloud, DevOps &amp; SRE · São Paulo, SP · <a href="mailto:contato@alexrabelo.com.br" style="color:var(--text-muted);">contato@alexrabelo.com.br</a></p>
+  <p>Alex Rabelo · Cloud, DevOps &amp; SRE · São Paulo, SP · <a href="mailto:alexrabelo@gmail.com" style="color:var(--text-muted);">contato@alexrabelo.com.br</a></p>
   <p style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-dim);">Construído com atenção a cada linha de código. Sem bibliotecas externas pesadas.</p>
 </footer>
 
