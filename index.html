@@ -703,6 +703,20 @@ footer {
             <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">./deploy.sh --env producao --regiao sao-paulo</span></div>
             <div class="out" style="margin-top:6px;">[OK] provisionado em 4m 12s</div>
             <div class="out">[OK] aplicações saudáveis</div>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">cat portfolio/sobre.txt</span></div>
+            <div class="dim">Infraestrutura · Cloud · DevOps · SRE · IA</div>
+            <div class="dim">Linux: RHEL, CentOS, Debian, SUSE</div>
+            <div class="dim">Cloud: AWS · Azure</div>
+            <div class="dim">IaC: Terraform · Ansible · Puppet · CFEngine</div>
+            <div class="dim">Containers: Docker · Kubernetes</div>
+            <div class="dim">CI/CD: GitHub Actions · Jenkins</div>
+            <div class="dim">Observabilidade: Zabbix · Dynatrace · Prometheus · Grafana</div>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">./deploy.sh --env producao --regiao sao-paulo</span></div>
+            <div class="out" style="margin-top:6px;">[OK] provisionado em 4m 12s</div>
+            <div class="out">[OK] aplicações saudáveis</div>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">tail -f /var/log/sistema.log</span></div>
+            <div class="out">[2026-11-07] deploy concluído com sucesso</div>
+            <div class="out">[2026-11-07] métricas dentro do esperado</div>
           </div>
         </div>
       </div>
@@ -984,63 +998,7 @@ document.querySelectorAll('.reveal').forEach(el => {
   observer.observe(el);
 });
 
-/* ==========================================================================
-   Terminho de digitação simples (visual apenas)
-   ========================================================================== */
-const lines = [
-  { cmd: 'alex@workstation:~$ cat portfolio/sobre.txt', out: 'Infraestrutura · Cloud · DevOps · SRE · IA' },
-  { cmd: '', out: 'Linux: RHEL, CentOS, Debian, SUSE' },
-  { cmd: '', out: 'Cloud: AWS · Azure' },
-  { cmd: '', out: 'IaC: Terraform · Ansible · Puppet · CFEngine' },
-  { cmd: '', out: 'Containers: Docker · Kubernetes' },
-  { cmd: '', out: 'CI/CD: GitHub Actions · Jenkins' },
-  { cmd: '', out: 'Observabilidade: Zabbix · Dynatrace · Prometheus · Grafana' },
-  { cmd: 'alex@workstation:~$ ./deploy.sh --env producao --regiao sao-paulo', out: '[OK] provisionado em 4m 12s' },
-  { cmd: '', out: '[OK] aplicações saudáveis' },
-  { cmd: 'alex@workstation:~$ tail -f /var/log/sistema.log', out: '[2026-11-07] deploy concluído com sucesso' },
-  { cmd: '', out: '[2026-11-07] métricas dentro do esperado' }
-];
-
-let lineIndex = 0;
-let charIndex = 0;
-const terminalBody = document.querySelector('.terminal-body');
-
-function typeWriter() {
-  if (!terminalBody || lineIndex >= lines.length) return;
-
-  const line = lines[lineIndex];
-
-  if (charIndex === 0 && line.cmd) {
-    const div = document.createElement('div');
-    div.innerHTML = `<span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="cmd-line"></span>`;
-    terminalBody.appendChild(div);
-  }
-
-  const lastDiv = terminalBody.lastElementChild;
-  const cmdLine = lastDiv.querySelector('.cmd-line');
-
-  if (line.cmd && charIndex < line.cmd.length) {
-    cmdLine.textContent += line.cmd.charAt(charIndex);
-    charIndex++;
-    setTimeout(typeWriter, 35);
-    return;
-  }
-
-  if (line.out) {
-    const outDiv = document.createElement('div');
-    outDiv.className = 'out';
-    outDiv.textContent = line.out;
-    terminalBody.appendChild(outDiv);
-  }
-
-  lineIndex++;
-  charIndex = 0;
-  const nextDelay = line.cmd ? 500 : 300;
-  setTimeout(typeWriter, nextDelay);
-}
-
-// Start typing after a short delay
-setTimeout(typeWriter, 600);
+/* Terminal com conteúdo estático — sem animação de digitação */
 </script>
 
 </body>
