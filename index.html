@@ -698,12 +698,12 @@ footer {
             <div class="dot green"></div>
           </div>
           <div class="terminal-body">
-            <div><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">cat portfolio/sobre.txt</span></div>
+            <div><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-1"></span></div>
             <div class="dim">Infraestrutura · Cloud · DevOps · SRE · IA</div>
-            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">./deploy.sh --env producao --regiao sao-paulo</span></div>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-2"></span></div>
             <div class="out" style="margin-top:6px;">[OK] provisionado em 4m 12s</div>
             <div class="out">[OK] aplicações saudáveis</div>
-            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">cat portfolio/sobre.txt</span></div>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-3"></span></div>
             <div class="dim">Infraestrutura · Cloud · DevOps · SRE · IA</div>
             <div class="dim">Linux: RHEL, CentOS, Debian, SUSE</div>
             <div class="dim">Cloud: AWS · Azure</div>
@@ -711,10 +711,10 @@ footer {
             <div class="dim">Containers: Docker · Kubernetes</div>
             <div class="dim">CI/CD: GitHub Actions · Jenkins</div>
             <div class="dim">Observabilidade: Zabbix · Dynatrace · Prometheus · Grafana</div>
-            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">./deploy.sh --env producao --regiao sao-paulo</span></div>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-4"></span></div>
             <div class="out" style="margin-top:6px;">[OK] provisionado em 4m 12s</div>
             <div class="out">[OK] aplicações saudáveis</div>
-            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="out">tail -f /var/log/sistema.log</span></div>
+            <div style="margin-top:10px;"><span class="prompt">alex@workstation:~</span><span class="cmd">$</span> <span class="type-cmd" id="cmd-5"></span></div>
             <div class="out">[2026-11-07] deploy concluído com sucesso</div>
             <div class="out">[2026-11-07] métricas dentro do esperado</div>
           </div>
@@ -998,7 +998,40 @@ document.querySelectorAll('.reveal').forEach(el => {
   observer.observe(el);
 });
 
-/* Terminal com conteúdo estático — sem animação de digitação */
+/* ==========================================================================
+   TypeWriter — digita apenas o comando após o prompt estático
+   ========================================================================== */
+const commands = [
+  { id: 'cmd-1', text: 'cat portfolio/sobre.txt' },
+  { id: 'cmd-2', text: './deploy.sh --env producao --regiao sao-paulo' },
+  { id: 'cmd-3', text: 'cat portfolio/sobre.txt' },
+  { id: 'cmd-4', text: './deploy.sh --env producao --regiao sao-paulo' },
+  { id: 'cmd-5', text: 'tail -f /var/log/sistema.log' }
+];
+
+let cmdIndex = 0;
+let charIndex = 0;
+
+function typeWriter() {
+  if (cmdIndex >= commands.length) return;
+
+  const cmd = commands[cmdIndex];
+  const el = document.getElementById(cmd.id);
+  if (!el) return;
+
+  if (charIndex < cmd.text.length) {
+    el.textContent += cmd.text.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeWriter, 35);
+  } else {
+    cmdIndex++;
+    charIndex = 0;
+    setTimeout(typeWriter, 500);
+  }
+}
+
+// Start typing after a short delay
+setTimeout(typeWriter, 600);
 </script>
 
 </body>
