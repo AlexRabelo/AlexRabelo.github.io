@@ -1,0 +1,78 @@
+/* Custom styles for alexrabelo.github.io */
+.project-cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 2rem 0;
+}
+
+.project-card {
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: #fff;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: #007acc;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: #007acc;
+}
+
+.project-card p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.tags {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #666;
+  background: #f4f4f4;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.project-list article {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+
+.project-list h2 a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+.project-list h2 a:hover {
+  text-decoration: underline;
+}
+
+.project-list .tags {
+  margin-left: 0;
+}
+
+.home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.home h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .project-cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,18 @@
+title: Alex Rabelo — Cloud, DevOps & SRE
+email: alexrabelo@gmail.com
+description: >-
+  Portfólio técnico de infraestrutura cloud, DevOps, SRE e automação com IA.
+  Labs de Linux, Shell Script, Terraform, Kubernetes, WSL2, OpenCode e pesquisas
+  sobre a junção de TI + IA.
+baseurl: "/alexrabelo.github"
+url: "https://AlexRabelo.github.io"
+twitter_username: alexluizrabelo
+github_username: AlexRabelo
+linkedin_username: alexrabelo
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+show_excerpts: true
