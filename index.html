@@ -989,8 +989,16 @@ document.querySelectorAll('.reveal').forEach(el => {
    ========================================================================== */
 const lines = [
   { cmd: 'alex@workstation:~$ cat portfolio/sobre.txt', out: 'Infraestrutura · Cloud · DevOps · SRE · IA' },
+  { cmd: '', out: 'Linux: RHEL, CentOS, Debian, SUSE' },
+  { cmd: '', out: 'Cloud: AWS · Azure' },
+  { cmd: '', out: 'IaC: Terraform · Ansible · Puppet · CFEngine' },
+  { cmd: '', out: 'Containers: Docker · Kubernetes' },
+  { cmd: '', out: 'CI/CD: GitHub Actions · Jenkins' },
+  { cmd: '', out: 'Observabilidade: Zabbix · Dynatrace · Prometheus · Grafana' },
   { cmd: 'alex@workstation:~$ ./deploy.sh --env producao --regiao sao-paulo', out: '[OK] provisionado em 4m 12s' },
-  { cmd: '', out: '[OK] aplicações saudáveis' }
+  { cmd: '', out: '[OK] aplicações saudáveis' },
+  { cmd: 'alex@workstation:~$ tail -f /var/log/sistema.log', out: '[2026-11-07] deploy concluído com sucesso' },
+  { cmd: '', out: '[2026-11-07] métricas dentro do esperado' }
 ];
 
 let lineIndex = 0;
@@ -1015,34 +1023,20 @@ function typeWriter() {
     cmdLine.textContent += line.cmd.charAt(charIndex);
     charIndex++;
     setTimeout(typeWriter, 35);
-  } else if (line.out) {
-    if (charIndex === 0 && line.cmd) {
-      // finished typing cmd, add output after short pause
-      setTimeout(() => {
-        const outDiv = document.createElement('div');
-        outDiv.className = 'out';
-        outDiv.textContent = line.out;
-        terminalBody.appendChild(outDiv);
-        lineIndex++;
-        charIndex = 0;
-        setTimeout(typeWriter, 500);
-      }, 400);
-      return;
-    } else if (!line.cmd) {
-      const outDiv = document.createElement('div');
-      outDiv.className = 'out';
-      outDiv.textContent = line.out;
-      terminalBody.appendChild(outDiv);
-      lineIndex++;
-      charIndex = 0;
-      setTimeout(typeWriter, 400);
-      return;
-    }
-  } else {
-    lineIndex++;
-    charIndex = 0;
-    setTimeout(typeWriter, 400);
+    return;
   }
+
+  if (line.out) {
+    const outDiv = document.createElement('div');
+    outDiv.className = 'out';
+    outDiv.textContent = line.out;
+    terminalBody.appendChild(outDiv);
+  }
+
+  lineIndex++;
+  charIndex = 0;
+  const nextDelay = line.cmd ? 500 : 300;
+  setTimeout(typeWriter, nextDelay);
 }
 
 // Start typing after a short delay
