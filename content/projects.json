@@ -9,6 +9,15 @@
     "updated_at": "2026-11-08"
   },
   {
+    "name": "sre-lpi-lab",
+    "description": "Projeto para criar um lab para treinamento de SRE — AWS Local Lab: Amazon Linux 2023 no VirtualBox",
+    "url": "https://github.com/AlexRabelo/sre-lpi-lab",
+    "language": null,
+    "topics": [],
+    "stars": 0,
+    "updated_at": "2026-11-09"
+  },
+  {
     "name": "ShellScript",
     "description": "Repositorio Estudos Shell Script",
     "url": "https://github.com/AlexRabelo/ShellScript",
