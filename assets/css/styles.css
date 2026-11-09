@@ -1,16 +1,11 @@
 /* ==========================================================================
-   Design System — Princípios 1 a 7
-   Alex Rabelo Portfolio
+   Design System — Moderno e Profissional (Portfólio Alex Rabelo)
    ========================================================================== */
-
-/* ------------------------------------------------------------
-   Variáveis de design
-   ------------------------------------------------------------ */
 :root {
-  /* Cores */
-  --bg: #0a0a0f;
-  --surface: #0f1115;
-  --surface-hover: #15181f;
+  /* Cores — Dark tecnológico com acento ciano/azul elétrico */
+  --color-bg: #0a0a0f;
+  --color-surface: #0f1115;
+  --color-surface-hover: #15181f;
   --border: #1e293b;
   --border-hover: #334155;
   --text: #f8fafc;
@@ -22,8 +17,8 @@
   --ring: rgba(34, 211, 238, 0.4);
 
   /* Tipografia */
-  --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
-  --font-body: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Archivo', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
 
   /* Espaçamento — múltiplos de 8px */
   --space-1: 8px;
@@ -33,12 +28,6 @@
   --space-5: 48px;
   --space-6: 64px;
   --space-7: 96px;
-
-  /* Tipografia */
-  --fs-1: 1.25rem;   /* 20px */
-  --fs-2: 1.5rem;    /* 24px */
-  --fs-3: 1.75rem;   /* 28px */
-  --fs-4: 2.25rem;   /* 36px */
 
   /* Bordas e sombras */
   --radius: 12px;
@@ -52,9 +41,7 @@
   --ease: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* ------------------------------------------------------------
-   Reset e base
-   ------------------------------------------------------------ */
+/* Reset e base */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -71,11 +58,12 @@ a:hover { color: var(--accent-hover); }
 
 /* ------------------------------------------------------------
    Tipografia — PRINCÍPIO 3
+   Máximo 2 famílias, 4 tamanhos, hierarquia por peso
    ------------------------------------------------------------ */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: -0.02em;
   color: var(--text);
 }
 h1 { font-size: var(--fs-4); margin-bottom: var(--space-4); }
@@ -85,8 +73,58 @@ h4 { font-size: var(--fs-1); margin-bottom: var(--space-2); }
 p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
 
 /* ------------------------------------------------------------
-   PRINCÍPIO 1 — Ponto focal claro
-   Hero com um único CTA primário
+   Navbar fixo com blur
+   ------------------------------------------------------------ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(8, 9, 12, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: padding var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.navbar.scrolled {
+  padding: var(--space-1) var(--space-4);
+  background: rgba(8, 9, 12, 0.85);
+}
+.nav-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+}
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--accent), #3b82f6);
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  color: #051015;
+  font-weight: 800;
+}
+.brand-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------
+   Hero
    ------------------------------------------------------------ */
 header.hero {
   padding: var(--space-7) var(--space-4);
@@ -136,7 +174,9 @@ header.hero {
   line-height: 1.6;
 }
 .hero .cta-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
   padding: var(--space-2) var(--space-5);
   background: var(--accent);
   color: #051015;
@@ -156,62 +196,7 @@ header.hero {
 }
 
 /* ------------------------------------------------------------
-   Navbar fixo — PRINCÍPIO 6
-   ------------------------------------------------------------ */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: var(--space-2) var(--space-4);
-  background: rgba(8, 9, 12, 0.5);
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  transition: padding var(--dur) var(--ease), background var(--dur) var(--ease);
-}
-.navbar.scrolled {
-  padding: var(--space-1) var(--space-4);
-  background: rgba(8, 9, 12, 0.85);
-}
-.nav-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  text-decoration: none;
-}
-.brand-mark {
-  width: 30px;
-  height: 30px;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--accent), #3b82f6);
-  display: grid;
-  place-items: center;
-  font-size: 0.85rem;
-  color: #051015;
-  font-weight: 800;
-}
-.brand-name {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.25rem;
-  color: var(--text);
-}
-.nav-actions {
-  display: flex;
-  gap: var(--space-2);
-}
-
-/* ------------------------------------------------------------
-   Seções — PRINCÍPIO 2
+   Seções
    ------------------------------------------------------------ */
 .section {
   padding: var(--space-6) var(--space-4);
@@ -230,12 +215,10 @@ header.hero {
   font-size: 1rem;
 }
 
-/* ------------------------------------------------------------
-   Sobre — PRINCÍPIO 5
-   ------------------------------------------------------------ */
+/* Sobre */
 .sobre-texto {
   max-width: 65ch;
-  margin: 0 auto var(--space-5) auto;
+  margin: 0 auto var(--space-3) auto;
 }
 .sobre-texto p {
   margin-bottom: var(--space-3);
@@ -264,9 +247,7 @@ header.hero {
   color: var(--text-muted);
 }
 
-/* ------------------------------------------------------------
-   Competências — PRINCÍPIO 6
-   ------------------------------------------------------------ */
+/* Competências — PRINCÍPIO 6 (Detalhes consistentes) */
 .grupos-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -306,9 +287,7 @@ header.hero {
   border-radius: 50%;
 }
 
-/* ------------------------------------------------------------
-   Projetos — PRINCÍPIO 5
-   ------------------------------------------------------------ */
+/* Projetos — PRINCÍPIO 5 (Conteúdo real) */
 .projetos-lista {
   display: grid;
   grid-template-columns: 1fr;
@@ -331,33 +310,12 @@ header.hero {
   border-color: var(--accent);
   box-shadow: var(--shadow-2);
 }
-.projeto-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.projeto-card h3 {
+  margin-top: 0;
   margin-bottom: var(--space-2);
-}
-.projeto-meta h3 {
   font-size: 1.1rem;
-  margin: 0;
 }
-.projeto-tag {
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 2px var(--space-1);
-  border-radius: var(--radius-sm);
-  background: var(--accent-soft);
-  color: var(--accent);
-  border: 1px solid rgba(34, 211, 238, 0.2);
-}
-.projeto-tag.tag-building {
-  background: rgba(220, 38, 38, 0.1);
-  color: #ef4444;
-  border-color: rgba(220, 38, 38, 0.2);
-}
-.projeto-desc {
+.projeto-card p {
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.5;
@@ -367,15 +325,15 @@ header.hero {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1);
-  margin-bottom: auto;
+  margin-bottom: var(--space-3);
 }
 .stack-chip {
   font-size: 0.72rem;
   padding: 2px var(--space-1);
   border-radius: var(--radius-sm);
-  background: rgba(15, 17, 21, 0.6);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  color: var(--accent);
   font-weight: 500;
 }
 .projeto-footer {
@@ -399,9 +357,7 @@ header.hero {
   color: var(--accent-hover);
 }
 
-/* ------------------------------------------------------------
-   Experiência — Timeline PRINCÍPIO 6
-   ------------------------------------------------------------ */
+/* Experiência — Timeline PRINCÍPIO 6 */
 .timeline {
   list-style: none;
   padding: 0;
@@ -419,7 +375,7 @@ header.hero {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
+  background: var(--accent);
   opacity: 0.5;
 }
 .timeline-item {
@@ -453,15 +409,8 @@ header.hero {
   margin-bottom: 0.4rem;
   padding-left: 0;
 }
-.timeline-content li::before {
-  width: 4px;
-  height: 4px;
-  top: 0.55em;
-}
 
-/* ------------------------------------------------------------
-   Formação e Certificações
-   ------------------------------------------------------------ */
+/* Formação e Certificações */
 .formacao-item {
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -499,6 +448,7 @@ header.hero {
 
 /* ------------------------------------------------------------
    Contato — PRINCÍPIO 1 (um único foco: contato)
+   Todos os botões usam o mesmo estilo do hero (Ícone SVG + texto)
    ------------------------------------------------------------ */
 .contato {
   text-align: center;
@@ -508,15 +458,19 @@ header.hero {
   border-radius: var(--radius);
   background: var(--surface);
   padding: var(--space-6);
-  margin-top: var(--space-6);
+  margin: var(--space-6) 0;
+  text-align: center;
 }
 .contato h2 {
   text-align: center;
   margin-bottom: var(--space-3);
 }
 .contato p {
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
   max-width: 60ch;
-  margin: 0 auto var(--space-5) auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .contato-links {
   display: flex;
@@ -527,7 +481,7 @@ header.hero {
 .contact-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
   padding: var(--space-2) var(--space-4);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -543,6 +497,9 @@ header.hero {
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
+}
+.contact-link svg {
+  display: block;
 }
 
 /* ------------------------------------------------------------
