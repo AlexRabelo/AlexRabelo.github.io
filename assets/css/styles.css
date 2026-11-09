@@ -231,13 +231,44 @@ p, li, .section-sub, .summary, .stat-label, .cert-list li, .log-body p { color: 
   flex-wrap: wrap;
   gap: var(--space-2);
 }
-.skill-list li {
+.skill-chip {
   font-size: var(--fs-sm);
-  color: var(--mute);
+  color: var(--ink);
   padding: var(--space-1) var(--space-2);
   border: 1px solid var(--border);
   border-radius: var(--radius-full);
   background: var(--surface);
+  cursor: default;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.skill-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.skill-chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+/* Cores sutis por categoria */
+.skill-cloud { border-color: rgba(99, 252, 241, 0.2); color: var(--accent-dim); }
+.skill-cloud:hover { border-color: var(--accent); color: var(--accent); }
+.skill-iac { border-color: rgba(34, 211, 238, 0.2); color: var(--accent-dim); }
+.skill-iac:hover { border-color: var(--accent); color: var(--accent); }
+.skill-container { border-color: rgba(46, 204, 113, 0.2); color: var(--ok-dim, var(--ok)); }
+.skill-container:hover { border-color: var(--ok); color: var(--ok); }
+.skill-cicd { border-color: rgba(255, 159, 28, 0.2); color: var(--warn-dim, var(--warn)); }
+.skill-cicd:hover { border-color: var(--warn); color: var(--warn); }
+.skill-shell { border-color: rgba(59, 130, 246, 0.2); color: var(--blue-600, var(--accent)); }
+.skill-shell:hover { border-color: var(--blue-600, var(--accent)); color: var(--blue-600, var(--accent)); }
+.skill-obs { border-color: rgba(239, 68, 68, 0.2); color: var(--crit-dim, var(--crit)); }
+.skill-obs:hover { border-color: var(--crit); color: var(--crit); }
+.skill-ai { border-color: rgba(99, 102, 241, 0.2); color: var(--indigo-500, #6366f1); }
+.skill-ai:hover { border-color: #6366f1; color: #6366f1; }
+/* Responsividade: sobre-grid empilhado em mobile, lado a lado em desktop */
+@media (min-width: 640px) {
+  .sobre-grid {
+    grid-template-columns: 1fr 320px;
+  }
 }
 .sobre-stats {
   display: flex;
