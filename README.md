@@ -1,58 +1,78 @@
-# Portfólio — Alex Rabelo
+# Portfólio — Alex Luiz Rabelo
 
-Site de portfólio profissional publicado no GitHub Pages.
+Site pessoal publicado no GitHub Pages. Não é um currículo bonito; funciona como uma interface de sistema, com shell prompt no topo, tela de boot no hero, tabela de processos para os projetos e log de sistema para a experiência profissional.
 
-## Estrutura de arquivos
+Todo o conteúdo vem de `content/linkedin.md` e `content/projects.json`. Não há placeholders nem lorem ipsum.
+
+## Estrutura
 
 ```
 ├── index.html
-├── assets/
-│   ├── css/styles.css
-│   └── js/main.js (se necessário)
+├── 404.html
+├── assets/css/styles.css
 ├── content/
 │   ├── linkedin.md
 │   └── projects.json
-├── .github/workflows/deploy.yml
+├── docs/design-tokens.css
+├── docs/design-telemetry.css
+├── skills-lock.json
 └── README.md
 ```
 
-## Design — 7 Princípios
+## Design
 
-A página segue os 7 princípios de design de interface:
+O site segue o conceito "Telemetria do Profissional". Cada seção se comporta como um módulo de sistema:
 
-1. **Ponto focal claro** — Hero com um único CTA primário ("Ver Projetos").
-2. **Espaçamento em escala** — Múltiplos de 8px via CSS custom properties (`--space-1` a `--space-7`).
-3. **Hierarquia por peso e cor** — Máximo 2 famílias tipográficas (Outfit para títulos, Source Sans 3 para corpo), 4 tamanhos de fonte, títulos peso 700.
-4. **Cor com parcimônia** — Um acento (ciano `#22d3ee`) usado apenas em CTA, foco e links. Sem gradientes.
-5. **Conteúdo real** — Dados extraídos do LinkedIn e repositórios do GitHub. Sem placeholders.
-6. **Detalhes consistentes** — Raio de borda 12px (aninhados 8px), bordas 1px, sombras em camadas.
-7. **Movimento conectado** — Transições 150–250ms, `prefers-reduced-motion` respeitado.
+- **Hero**: sequência de boot que carrega módulos (`alex_rabelo.sre`, `cloud.infra`, `ia.operacoes`) e avisa que o sistema está pronto, com 28+ anos de uptime.
+- **Navegação**: um prompt `> _` no topo. Clicar em um comando muda a seção.
+- **Projetos**: listados como processos (`ps aux`), com PID, stack, status e data de atualização.
+- **Experiência**: registro de sistema com timestamps (`[abr/2026]`) e nível `info`.
+- **Contato**: endpoint com ícones de e-mail, LinkedIn e GitHub. Sem texto ao lado dos ícones.
+
+Paleta: fundo `#050607`, acento único `#66fcf1`. Sem gradientes, sem cards arredondados idênticos e sem setinhas `→` no final de links.
+
+## Conteúdo
+
+- Nome: Alex Luiz Rabelo
+- Local: São Paulo, SP, Brasil
+- Empresa atual: Dexian Brasil (cliente BNP Paribas Cardif)
+- Cargo: Analista de Infraestrutura Especialista (desde abr/2026)
+- Anterior: Brasilseg — Especialista em Infraestrutura (dez/2018 a jan/2026)
+- Voluntário: Escola da Nuvem — Mentor (set/2025 a ago/2026)
+- Formação: Bacharelado em Ciência de Dados, Mackenzie (concluído jul/2026)
+- Inglês: Limited Working
+
+Projetos em destaque:
+
+- lab-redhat-wsl2 — RHEL no WSL2 (nov/2026)
+- iac-terraform-ai-review — revisão de planos Terraform com LLM (nov/2026)
+- mlops-k8s-recomendacao — deploy de ML em Kubernetes (nov/2026)
+- llmops-rag-infra — plataforma LLMOps com RAG (nov/2026)
+- shellscript-sre-toolkit — scripts Bash com CI (nov/2026)
+- iac-aws-terraform-demo — Terraform AWS modular (set/2025)
 
 ## Deploy
 
-O GitHub Actions faz o deploy automático para o GitHub Pages a cada push na branch `main`.
+O GitHub Actions faz deploy automático para o GitHub Pages a cada push na branch `main`.
 
 Site: https://alexrabelo.github.io/
 
 ## Validação
 
-Execução dos comandos de validação (pré-requisito: servidor local na porta 8000):
-
 ```bash
-# 1. Nenhum placeholder
+# Nenhum placeholder no conteúdo
 grep -riE "lorem|ipsum|fulano|sicrano|placeholder|TODO|example\.com" index.html content/ && echo "FALHA" || echo "OK"
 
-# 2. Espaçamentos fora da escala de 8px
+# Espaçamentos fora da escala de 8px no CSS
 grep -oE "padding[^;]*[0-9]+px" assets/css/styles.css | grep -vE "(8|16|24|32|48|64|96)px"
 
-# 3. Tamanhos de fonte distintos (≤ 4)
+# Até 4 tamanhos de fonte distintos
 grep -oE "font-size:\s*[0-9.]+rem" assets/css/styles.css | sort -u | wc -l
 
-# 4. Gradientes proibidos
+# Gradientes proibidos
 grep -riE "linear-gradient|radial-gradient" assets/css/styles.css && echo "FALHA" || echo "OK"
 ```
 
-## Conteúdo
+## Transparência de IA
 
-- Conteúdo do LinkedIn: `content/linkedin.md`
-- Projetos do GitHub: `content/projects.json`
+Revisei este arquivo manualmente. Construí o site com auxílio de ferramentas de IA e revisei/testei tudo pessoalmente.
