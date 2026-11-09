@@ -2,8 +2,29 @@
    Hero com um único CTA primário. Nenhum botão secundário compete.
 */
 :root {
+  /* PRINCÍPIO 2: Espaçamento em escala — múltiplos de 8px apenas */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+
   --accent: #22d3ee;
 }
+
+/* PRINCÍPIO 2 — Espaçamento em seções */
+.section {
+  padding: var(--space-6) var(--space-4);
+}
+.section > h2 {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+
+/* PRINCÍPIO 5 — Conteúdo real: seção Sobre com dados do CV */
+.sobre p { max-width: 65ch; margin: 0 auto var(--space-3) auto; }
 
 body {
   background: #0a0a0f;
