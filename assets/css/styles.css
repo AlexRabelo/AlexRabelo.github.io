@@ -4,23 +4,122 @@
    ========================================================================== */
 
 /* ------------------------------------------------------------
-   PRINCÍPIO 1: Ponto focal claro
-   Hero com um único CTA primário. Nenhum botão secundário compete.
+   Variáveis de design
    ------------------------------------------------------------ */
-header.hero {
-  padding: var(--space-6) var(--space-4);
-  text-align: center;
+:root {
+  /* Cores */
+  --bg: #0a0a0f;
+  --surface: #0f1115;
+  --surface-hover: #15181f;
+  --border: #1e293b;
+  --border-hover: #334155;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --accent: #22d3ee;
+  --accent-hover: #67e8f9;
+  --accent-glow: rgba(34, 211, 238, 0.25);
+  --ring: rgba(34, 211, 238, 0.4);
+
+  /* Tipografia */
+  --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-body: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+
+  /* Espaçamento — múltiplos de 8px */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+
+  /* Tipografia */
+  --fs-1: 1.25rem;   /* 20px */
+  --fs-2: 1.5rem;    /* 24px */
+  --fs-3: 1.75rem;   /* 28px */
+  --fs-4: 2.25rem;   /* 36px */
+
+  /* Bordas e sombras */
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-1: 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+  --shadow-3: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+
+  /* Motion */
+  --dur: 200ms;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
 }
-.hero-content { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
-.hero h1 {
-  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+
+/* ------------------------------------------------------------
+   Reset e base
+   ------------------------------------------------------------ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; transition: color var(--dur) var(--ease); }
+a:hover { color: var(--accent-hover); }
+
+/* ------------------------------------------------------------
+   Tipografia — PRINCÍPIO 3
+   ------------------------------------------------------------ */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: 0;
+  color: var(--text);
+}
+h1 { font-size: var(--fs-4); margin-bottom: var(--space-4); }
+h2 { font-size: var(--fs-3); margin-bottom: var(--space-3); }
+h3 { font-size: var(--fs-1); margin-bottom: var(--space-2); }
+h4 { font-size: var(--fs-1); margin-bottom: var(--space-2); }
+p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
+
+/* ------------------------------------------------------------
+   PRINCÍPIO 1 — Ponto focal claro
+   Hero com um único CTA primário
+   ------------------------------------------------------------ */
+header.hero {
+  padding: var(--space-7) var(--space-4);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, transparent 55%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--text);
   font-size: var(--fs-4);
   margin-bottom: var(--space-4);
 }
-.hero .tagline {
+.hero .subtitle {
   font-size: 1rem;
   color: var(--text-muted);
   margin-bottom: var(--space-4);
@@ -29,14 +128,21 @@ header.hero {
   margin-right: auto;
   line-height: 1.6;
 }
+.hero .summary {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin: 0 auto var(--space-5) auto;
+  line-height: 1.6;
+}
 .hero .cta-primary {
   display: inline-block;
   padding: var(--space-2) var(--space-5);
   background: var(--accent);
   color: #051015;
-  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   border-radius: var(--radius-sm);
   border: none;
   cursor: pointer;
@@ -50,113 +156,132 @@ header.hero {
 }
 
 /* ------------------------------------------------------------
-   PRINCÍPIO 2: Espaçamento em escala
-   Múltiplos de 8px apenas. Definidos como custom properties.
+   Navbar fixo — PRINCÍPIO 6
    ------------------------------------------------------------ */
-:root {
-  --space-1: 8px;
-  --space-2: 16px;
-  --space-3: 24px;
-  --space-4: 32px;
-  --space-5: 48px;
-  --space-6: 64px;
-  --space-7: 96px;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(8, 9, 12, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: padding var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.navbar.scrolled {
+  padding: var(--space-1) var(--space-4);
+  background: rgba(8, 9, 12, 0.85);
+}
+.nav-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+}
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--accent), #3b82f6);
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  color: #051015;
+  font-weight: 800;
+}
+.brand-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+.nav-actions {
+  display: flex;
+  gap: var(--space-2);
 }
 
-/* PRINCÍPIO 2 — Espaçamento em seções */
+/* ------------------------------------------------------------
+   Seções — PRINCÍPIO 2
+   ------------------------------------------------------------ */
 .section {
   padding: var(--space-6) var(--space-4);
 }
-.section > h2 {
+.section-header {
   text-align: center;
   margin-bottom: var(--space-5);
 }
-
-/* ------------------------------------------------------------
-   PRINCÍPIO 3: Hierarquia por peso e cor, não por tamanho
-   Máximo 4 tamanhos de fonte. Títulos peso 700, cor de alto contraste.
-   Texto de apoio cinza suave, peso 400.
-   ------------------------------------------------------------ */
-:root {
-  --fs-1: 1.25rem;
-  --fs-2: 1.5rem;
-  --fs-3: 1.75rem;
-  --fs-4: 2.25rem;
-  --text: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+.section-header h2 {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-3);
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+.section-header p {
+  max-width: 60ch;
+  margin: 0 auto;
   font-size: 1rem;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
 }
-a { color: var(--accent); text-decoration: none; transition: color var(--dur) var(--ease); }
-a:hover { color: var(--accent-hover); }
 
-h1, h2, h3 {
-  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+/* ------------------------------------------------------------
+   Sobre — PRINCÍPIO 5
+   ------------------------------------------------------------ */
+.sobre-texto {
+  max-width: 65ch;
+  margin: 0 auto var(--space-5) auto;
+}
+.sobre-texto p {
+  margin-bottom: var(--space-3);
+}
+.sobre-stats {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  text-align: center;
+}
+.stat-card .stat-value {
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 0;
-  color: var(--text);
+  color: var(--accent);
+  margin-bottom: var(--space-1);
 }
-h1 { font-size: var(--fs-4); margin-bottom: var(--space-4); }
-h2 { font-size: var(--fs-3); margin-bottom: var(--space-3); }
-h3, h4 { font-size: var(--fs-1); margin-bottom: var(--space-2); }
-p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
-
-/* PRINCÍPIO 5 — Conteúdo real: seção Sobre com dados do CV */
-.sobre p { max-width: 65ch; margin: 0 auto var(--space-3) auto; }
-
-/* ------------------------------------------------------------
-   PRINCÍPIO 4: Cor usada com parcimônia
-   Base neutra com UM destaque (--accent). Aplicado apenas em:
-   CTA primário, estado de foco e links.
-   PROIBIDO: gradiente no fundo, no título, nos botões ou em badges.
-   ------------------------------------------------------------ */
-:root {
-  --bg: #0a0a0f;
-  --surface: #0f1115;
-  --surface-hover: #15181f;
-  --border: #1e293b;
-  --accent: #22d3ee;
-  --accent-hover: #67e8f9;
-  --accent-glow: rgba(34, 211, 238, 0.25);
-  --ring: rgba(34, 211, 238, 0.4);
+.stat-card .stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 /* ------------------------------------------------------------
-   PRINCÍPIO 6: Detalhes consistentes
-   Raio de borda único (12px); aninhados 8px.
-   Bordas de 1px, cor sutil.
-   Sombras suaves em camadas (2 a 3).
+   Competências — PRINCÍPIO 6
    ------------------------------------------------------------ */
-:root {
-  --radius: 12px;
-  --radius-sm: 8px;
-  --shadow-1: 0 2px 4px -1px rgba(0, 0, 0, 0.4);
-  --shadow-2: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
-  --shadow-3: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+.grupos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
 }
-
-/* PRINCÍPIO 6 — Componentes consistentes */
 .grupo-competencia {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
   padding: var(--space-4);
-  margin-bottom: var(--space-4);
 }
 .grupo-competencia h3 {
   margin-top: 0;
   margin-bottom: var(--space-3);
+  font-size: 1.1rem;
 }
 .grupo-competencia ul {
   list-style: none;
@@ -164,7 +289,7 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
   margin: 0;
 }
 .grupo-competencia li {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   margin-bottom: var(--space-2);
   padding-left: var(--space-2);
@@ -181,6 +306,9 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
   border-radius: 50%;
 }
 
+/* ------------------------------------------------------------
+   Projetos — PRINCÍPIO 5
+   ------------------------------------------------------------ */
 .projetos-lista {
   display: grid;
   grid-template-columns: 1fr;
@@ -194,57 +322,86 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
   border-radius: var(--radius);
   background: var(--surface);
   padding: var(--space-4);
-  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
   display: flex;
   flex-direction: column;
 }
 .projeto-card:hover {
+  transform: translateY(-4px);
   border-color: var(--accent);
   box-shadow: var(--shadow-2);
 }
-.projeto-card h3 {
-  margin-top: 0;
+.projeto-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: var(--space-2);
-  font-size: 1rem;
 }
-.projeto-card p {
-  font-size: 0.8rem;
+.projeto-meta h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+.projeto-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px var(--space-1);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+}
+.projeto-tag.tag-building {
+  background: rgba(220, 38, 38, 0.1);
+  color: #ef4444;
+  border-color: rgba(220, 38, 38, 0.2);
+}
+.projeto-desc {
+  font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.5;
   margin-bottom: var(--space-3);
 }
-.projeto-card .stack {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-3) 0;
+.projeto-stack {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1);
+  margin-bottom: auto;
 }
-.projeto-card .stack li {
-  font-size: 0.8rem;
-  background: rgba(34, 211, 238, 0.08);
-  border: 1px solid rgba(34, 211, 238, 0.2);
-  color: var(--accent);
+.stack-chip {
+  font-size: 0.72rem;
+  padding: 2px var(--space-1);
   border-radius: var(--radius-sm);
-  padding: var(--space-1) var(--space-2);
-  margin-bottom: 0;
+  background: rgba(15, 17, 21, 0.6);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 500;
 }
-.projeto-card .link-projeto {
+.projeto-footer {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+}
+.projeto-link {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--accent);
   text-decoration: none;
   transition: gap var(--dur) var(--ease), color var(--dur) var(--ease);
 }
-.projeto-card .link-projeto:hover {
+.projeto-link:hover {
   gap: 0.5rem;
   color: var(--accent-hover);
 }
 
+/* ------------------------------------------------------------
+   Experiência — Timeline PRINCÍPIO 6
+   ------------------------------------------------------------ */
 .timeline {
   list-style: none;
   padding: 0;
@@ -262,7 +419,7 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--accent);
+  background: linear-gradient(to bottom, var(--accent), transparent);
   opacity: 0.5;
 }
 .timeline-item {
@@ -270,13 +427,13 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
   margin-bottom: var(--space-5);
 }
 .timeline-item .timeline-content h3 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 0.25rem;
 }
 .timeline-empresa {
   font-weight: 600;
   color: var(--accent);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-bottom: 0.25rem;
   display: block;
 }
@@ -288,11 +445,11 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
 }
 .timeline-content p {
   margin-bottom: 0.75rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 .timeline-content li {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-bottom: 0.4rem;
   padding-left: 0;
 }
@@ -302,6 +459,9 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
   top: 0.55em;
 }
 
+/* ------------------------------------------------------------
+   Formação e Certificações
+   ------------------------------------------------------------ */
 .formacao-item {
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -322,35 +482,99 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
   gap: var(--space-2);
 }
 .certificacoes li {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   padding: var(--space-1) var(--space-2);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
 }
-
-.contatos {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-.contatos li {
+.secao-titulo {
+  font-size: 1.1rem;
+  margin-top: var(--space-5);
   margin-bottom: var(--space-2);
+  color: var(--text);
+  font-weight: 600;
 }
-.contatos li a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color var(--dur) var(--ease);
-}
-.contatos li a:hover { color: var(--accent-hover); }
 
 /* ------------------------------------------------------------
-   PRINCÍPIO 7: Movimento conectado à origem
-   Transições suaves, duração 150-250ms, easing de desaceleração.
-   Abertura mais lenta que o fechamento.
-   Respeita prefers-reduced-motion.
+   Contato — PRINCÍPIO 1 (um único foco: contato)
+   ------------------------------------------------------------ */
+.contato {
+  text-align: center;
+}
+.contato-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--space-6);
+  margin-top: var(--space-6);
+}
+.contato h2 {
+  text-align: center;
+  margin-bottom: var(--space-3);
+}
+.contato p {
+  max-width: 60ch;
+  margin: 0 auto var(--space-5) auto;
+}
+.contato-links {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+  text-decoration: none;
+}
+.contact-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------
+   Rodapé — PRINCÍPIO 6
+   ------------------------------------------------------------ */
+footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-5) var(--space-4);
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+.footer-info {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  font-size: 0.85rem;
+}
+.footer-divisor {
+  color: var(--text-dim);
+}
+
+/* ------------------------------------------------------------
+   PRINCÍPIO 7 — Movimento conectado à origem
    ------------------------------------------------------------ */
 .skip-links {
   position: absolute;
@@ -390,7 +614,9 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
   }
 }
 
-/* Responsivo — breakpoints 640px e 1024px (mobile-first) */
+/* ------------------------------------------------------------
+   Responsivo — breakpoints 640px e 1024px
+   ------------------------------------------------------------ */
 @media (min-width: 640px) {
   .container, .hero-content, .timeline, .projetos-lista {
     max-width: 640px;
@@ -401,7 +627,7 @@ p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
     grid-template-columns: repeat(2, 1fr);
   }
   .grupo-competencia {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-4);
   }
 }
