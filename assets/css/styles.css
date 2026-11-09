@@ -371,18 +371,20 @@ p, li, .section-sub, .summary, .stat-label, .cert-list li, .log-body p { color: 
 }
 
 /* Formação e certificações */
-.formacao-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-}
 .form-card {
-  padding: var(--space-4);
+  padding: var(--space-6);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  max-width: 700px;
+  margin: 0 auto;
 }
 .form-card h3 { margin-bottom: var(--space-2); }
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: var(--space-5) 0;
+}
 .form-card h4 { font-family: var(--font-mono); font-weight: 700; font-size: var(--fs-sm); color: var(--accent); margin: var(--space-4) 0 var(--space-2); letter-spacing: 0.05em; text-transform: uppercase; }
 .instituicao {
   font-family: var(--font-mono);
@@ -490,7 +492,6 @@ footer {
 /* Responsivo */
 @media (min-width: 640px) {
   .sobre-grid { grid-template-columns: 1fr 320px; }
-  .formacao-grid { grid-template-columns: 1fr 320px; }
   .hero { text-align: left; }
   .boot { display: block; text-align: left; }
   .hero-actions { justify-content: flex-start; }
