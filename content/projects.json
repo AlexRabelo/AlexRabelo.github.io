@@ -1,23 +1,5 @@
 [
   {
-    "name": "iac-aws-terraform-demo",
-    "description": "Exemplo prático de infraestrutura como código (IaC) utilizando Terraform para provisionamento de recursos AWS. Inclui VPC, EC2, S3, pipelines CI/CD, organização modular e boas práticas de DevOps.",
-    "url": "https://github.com/AlexRabelo/iac-aws-terraform-demo",
-    "language": "HCL",
-    "topics": ["terraform", "aws", "iac", "devops", "vpc", "ec2", "s3", "github-actions"],
-    "stars": 0,
-    "updated_at": "2025-09-24"
-  },
-  {
-    "name": "ProjetoAplicado_03",
-    "description": "Sistema web de recomendação de livros que utiliza Machine Learning Híbrido",
-    "url": "https://github.com/AlexRabelo/ProjetoAplicado_03",
-    "language": null,
-    "topics": [],
-    "stars": 0,
-    "updated_at": "2025-09-23"
-  },
-  {
     "name": "lab-redhat-wsl2",
     "description": "Lab RHEL no WSL2 — base do portfólio",
     "url": "https://github.com/AlexRabelo/lab-redhat-wsl2",
@@ -25,51 +7,6 @@
     "topics": [],
     "stars": 1,
     "updated_at": "2026-11-08"
-  },
-  {
-    "name": "lab-redhat-wsl2-opencode",
-    "description": "Lab RHEL no WSL2 + OpenCode — base do portfólio",
-    "url": "https://github.com/AlexRabelo/lab-redhat-wsl2-opencode",
-    "language": null,
-    "topics": [],
-    "stars": 0,
-    "updated_at": "2026-11-07"
-  },
-  {
-    "name": "iac-terraform-ai-review",
-    "description": "Pipeline que revisa planos Terraform com LLM antes do apply",
-    "url": "https://github.com/AlexRabelo/iac-terraform-ai-review",
-    "language": null,
-    "topics": [],
-    "stars": 0,
-    "updated_at": "2026-11-07"
-  },
-  {
-    "name": "shellscript-sre-toolkit",
-    "description": "Scripts Bash para produção com CI (ShellCheck + Bats)",
-    "url": "https://github.com/AlexRabelo/shellscript-sre-toolkit",
-    "language": null,
-    "topics": [],
-    "stars": 0,
-    "updated_at": "2026-11-07"
-  },
-  {
-    "name": "mlops-k8s-recomendacao",
-    "description": "Deploy de modelo de ML em Kubernetes com CI/CD e observabilidade",
-    "url": "https://github.com/AlexRabelo/mlops-k8s-recomendacao",
-    "language": null,
-    "topics": [],
-    "stars": 1,
-    "updated_at": "2026-11-07"
-  },
-  {
-    "name": "llmops-rag-infra",
-    "description": "Plataforma LLMOps com RAG sobre documentação de infra e APIs de cloud",
-    "url": "https://github.com/AlexRabelo/llmops-rag-infra",
-    "language": null,
-    "topics": [],
-    "stars": 0,
-    "updated_at": "2026-11-07"
   },
   {
     "name": "ShellScript",
@@ -81,12 +18,39 @@
     "updated_at": "2026-11-08"
   },
   {
-    "name": "ciencia-de-dados",
-    "description": "Portfólio de Ciência de Dados",
-    "url": "https://github.com/AlexRabelo/ciencia-de-dados",
-    "language": "Shell",
-    "topics": ["github", "python", "machine-learning", "sql", "estatistica", "dados", "mackenzie-university"],
+    "name": "ProjetoAplicado_03",
+    "description": "Sistema web de recomendação de livros que utiliza Machine Learning Híbrido",
+    "url": "https://github.com/AlexRabelo/ProjetoAplicado_03",
+    "language": null,
+    "topics": [],
     "stars": 0,
-    "updated_at": "2025-04-05"
+    "updated_at": "2025-09-23"
+  },
+  {
+    "name": "iac-aws-terraform-demo",
+    "description": "Exemplo prático de infraestrutura como código (IaC) utilizando Terraform para provisionamento de recursos AWS. Inclui VPC, EC2, S3, pipelines CI/CD, organização modular e boas práticas de DevOps.",
+    "url": "https://github.com/AlexRabelo/iac-aws-terraform-demo",
+    "language": "HCL",
+    "topics": ["terraform", "aws", "iac", "devops", "vpc", "ec2", "s3", "github-actions"],
+    "stars": 0,
+    "updated_at": "2025-09-24"
+  },
+  {
+    "name": "dio-lab-open-source",
+    "description": "Repositório do lab 'Contribuindo em um Projeto Open Source no GitHub' da Digital Innovation One.",
+    "url": "https://github.com/AlexRabelo/dio-lab-open-source",
+    "language": "Jupyter Notebook",
+    "topics": [],
+    "stars": 0,
+    "updated_at": "2024-07-25"
+  },
+  {
+    "name": "python-week-2022",
+    "description": "Template Para a Python Week 2022 - 25 a 29 de Abril na Linux Tips",
+    "url": "https://github.com/AlexRabelo/python-week-2022",
+    "language": "Python",
+    "topics": [],
+    "stars": 0,
+    "updated_at": "2022-04-22"
   }
 ]

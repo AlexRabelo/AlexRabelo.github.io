@@ -45,11 +45,11 @@ Paleta: fundo `#050607`, acento único `#66fcf1`. Sem gradientes, sem cards arre
 Projetos em destaque:
 
 - lab-redhat-wsl2 — RHEL no WSL2 (nov/2026)
-- iac-terraform-ai-review — revisão de planos Terraform com LLM (nov/2026)
-- mlops-k8s-recomendacao — deploy de ML em Kubernetes (nov/2026)
-- llmops-rag-infra — plataforma LLMOps com RAG (nov/2026)
-- shellscript-sre-toolkit — scripts Bash com CI (nov/2026)
+- ShellScript — Repositorio Estudos Shell Script (nov/2026)
+- ProjetoAplicado_03 — Sistema web de recomendação de livros com ML Híbrido (set/2025)
 - iac-aws-terraform-demo — Terraform AWS modular (set/2025)
+- dio-lab-open-source — Lab Open Source da DIO (jul/2024)
+- python-week-2022 — Template Python Week 2022 (abr/2022)
 
 ## Deploy
 
