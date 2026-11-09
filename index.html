@@ -174,19 +174,21 @@
       <article class="projeto-card">
         <div class="projeto-header">
           <div class="projeto-meta">
-            <h3>Red Hat no WSL2</h3>
-            <span class="projeto-tag">Lab 1 · Base</span>
+            <h3>BookRec — Sistema Híbrido de Recomendação de Livros</h3>
+            <span class="projeto-tag">Concluído</span>
           </div>
-          <p class="projeto-desc">Laboratório de administração Linux: Red Hat Enterprise Linux rodando no WSL2 com configuração de systemd, rede, integração com VS Code remoto e script de provisionamento idempotente.</p>
+          <p class="projeto-desc">Problema: recomendadores sofrem com cold start (filtragem colaborativa) ou falta de descoberta (filtragem por conteúdo). Solução: sistema híbrido sobre o BookCrossing Dataset, com pipeline de EDA, treinamento offline, API FastAPI com normalização de scores e fallback automático, e interface com autocomplete. Resultado: prova de conceito validada com avaliação por relevância, serendipidade e robustez. Pipeline SAST integrado ao CI/CD.</p>
           <div class="projeto-stack">
-            <span class="stack-chip">RHEL</span>
-            <span class="stack-chip">WSL2</span>
-            <span class="stack-chip">Shell Script</span>
-            <span class="stack-chip">GitHub Actions</span>
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">FastAPI</span>
+            <span class="stack-chip">MongoDB</span>
+            <span class="stack-chip">scikit-learn</span>
+            <span class="stack-chip">PyTorch</span>
+            <span class="stack-chip">CRISP-DM</span>
           </div>
         </div>
         <div class="projeto-footer">
-          <a href="https://github.com/AlexRabelo/lab-redhat-wsl2" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/AlexRabelo/ProjetoAplicado_03" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
         </div>
       </article>
 
@@ -194,15 +196,17 @@
         <div class="projeto-header">
           <div class="projeto-meta">
             <h3>Shell Script SRE Toolkit</h3>
-            <span class="projeto-tag">Lab 2 · Automação</span>
-            <span class="projeto-tag tag-building">EM CONSTRUÇÃO</span>
+            <span class="projeto-tag">Concluído</span>
           </div>
-          <p class="projeto-desc">Coleção de scripts Bash para produção com CI (ShellCheck + Bats), strict mode, logging estruturado e templates seguros para ambientes de missão crítica.</p>
+          <p class="projeto-desc">Problema: a maioria do material de Shell Script ensina sintaxe e para aí. Quem aprende não consegue escrever um script que sobreviva a produção: sem strict mode, sem logging estruturado, sem tratamento de sinais — e quebra na primeira execução concorrente. Solução: curso progressivo em 16 módulos (00 a 15), do Linux essencial à automação de servidores, observabilidade e AWS com CLI, jq e Terraform. Cada módulo tem README com teoria e armadilhas, exemplos executáveis, exercícios com gabarito e testes. Template de script de produção pronto com header, strict mode, logging, dry-run e trap de sinais. Resultado: 28 commits, CI que valida todo push com ShellCheck em zero warnings, checagem de sintaxe e testes Bats. Trilha mapeada para LFCS, RHCSA e CompTIA Linux+. Licença MIT.</p>
           <div class="projeto-stack">
             <span class="stack-chip">Bash</span>
             <span class="stack-chip">ShellCheck</span>
             <span class="stack-chip">Bats</span>
             <span class="stack-chip">GitHub Actions</span>
+            <span class="stack-chip">systemd</span>
+            <span class="stack-chip">AWS CLI</span>
+            <span class="stack-chip">jq</span>
           </div>
         </div>
         <div class="projeto-footer">
@@ -213,10 +217,30 @@
       <article class="projeto-card">
         <div class="projeto-header">
           <div class="projeto-meta">
+            <h3>Red Hat no WSL2</h3>
+            <span class="projeto-tag">Documentado</span>
+          </div>
+          <p class="projeto-desc">Problema: praticar administração RHEL exige uma VM pesada ou instância em nuvem paga, impossível para estudos diários em máquina local com Windows. Solução: RHEL 10.2 real rodando no WSL2, com user space mantido pela Red Hat e kernel pelo WSL2. Importação da imagem .wsl oficial, registro no Subscription Manager via Red Hat Developer Subscription, repositórios AppStream e BaseOS habilitados, configuração de usuário padrão via /etc/wsl.conf. Resultado: Ambiente RHEL completo com dnf funcional e repositórios oficiais, sem VM e sem custo. Documentado com validação em cada etapa: wsl --list --verbose, cat /etc/redhat-release, subscription-manager status, dnf repolist.</p>
+          <div class="projeto-stack">
+            <span class="stack-chip">RHEL</span>
+            <span class="stack-chip">WSL2</span>
+            <span class="stack-chip">subscription-manager</span>
+            <span class="stack-chip">dnf</span>
+            <span class="stack-chip">PowerShell</span>
+          </div>
+        </div>
+        <div class="projeto-footer">
+          <a href="https://github.com/AlexRabelo/lab-redhat-wsl2" target="_blank" rel="noopener" class="projeto-link">Abrir no GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="projeto-card">
+        <div class="projeto-header">
+          <div class="projeto-meta">
             <h3>IaC Terraform + AWS</h3>
             <span class="projeto-tag">Projeto · IaC</span>
           </div>
-          <p class="projeto-desc">Exemplo prático de Infraestrutura como Código (IaC) utilizando Terraform para provisionamento de recursos AWS. Inclui VPC, EC2, S3, pipelines CI/CD, organização modular e boas práticas de DevOps.</p>
+          <p class="projeto-desc">Problema: Provisionamento manual de infraestrutura AWS gera drift, ambientes irreprodutíveis e ausência de trilha de auditoria — exatamente o tipo de risco que aparece em auditoria de ambiente crítico. Solução: Infraestrutura como Código modular em Terraform, com separação entre modules/ e environments/, versionamento de estado e pipeline de deploy via GitHub Actions. Inclui guia de acesso a EC2 via Session Manager, eliminando a necessidade de expor porta SSH. Resultado: Base reproduzível para provisionar VPC, EC2 e S3 com um terraform apply. Escopo declarado: laboratório de referência arquitetural, não ambiente de produção — os módulos cobrem o padrão de organização, não hardening completo.</p>
           <div class="projeto-stack">
             <span class="stack-chip">Terraform</span>
             <span class="stack-chip">AWS</span>
@@ -224,6 +248,7 @@
             <span class="stack-chip">EC2</span>
             <span class="stack-chip">S3</span>
             <span class="stack-chip">GitHub Actions</span>
+            <span class="stack-chip">Session Manager</span>
           </div>
         </div>
         <div class="projeto-footer">
