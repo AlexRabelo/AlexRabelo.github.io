@@ -1,8 +1,59 @@
-/* PRINCÍPIO 1: Ponto focal claro
+/* ==========================================================================
+   Design System — Princípios 1 a 7
+   Alex Rabelo Portfolio
+   ========================================================================== */
+
+/* ------------------------------------------------------------
+   PRINCÍPIO 1: Ponto focal claro
    Hero com um único CTA primário. Nenhum botão secundário compete.
-*/
+   ------------------------------------------------------------ */
+header.hero {
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+.hero-content { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+.hero h1 {
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--text);
+  font-size: var(--fs-4);
+  margin-bottom: var(--space-4);
+}
+.hero .tagline {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.hero .cta-primary {
+  display: inline-block;
+  padding: var(--space-2) var(--space-5);
+  background: var(--accent);
+  color: #051015;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  box-shadow: 0 10px 24px -8px var(--accent-glow);
+  text-decoration: none;
+}
+.hero .cta-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* ------------------------------------------------------------
+   PRINCÍPIO 2: Espaçamento em escala
+   Múltiplos de 8px apenas. Definidos como custom properties.
+   ------------------------------------------------------------ */
 :root {
-  /* PRINCÍPIO 2: Espaçamento em escala — múltiplos de 8px apenas */
   --space-1: 8px;
   --space-2: 16px;
   --space-3: 24px;
@@ -10,14 +61,22 @@
   --space-5: 48px;
   --space-6: 64px;
   --space-7: 96px;
-
-  --accent: #22d3ee;
 }
 
-/* PRINCÍPIO 3: Hierarquia por peso e cor, não por tamanho
+/* PRINCÍPIO 2 — Espaçamento em seções */
+.section {
+  padding: var(--space-6) var(--space-4);
+}
+.section > h2 {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+
+/* ------------------------------------------------------------
+   PRINCÍPIO 3: Hierarquia por peso e cor, não por tamanho
    Máximo 4 tamanhos de fonte. Títulos peso 700, cor de alto contraste.
    Texto de apoio cinza suave, peso 400.
-*/
+   ------------------------------------------------------------ */
 :root {
   --fs-1: 1.25rem;
   --fs-2: 1.5rem;
@@ -28,7 +87,20 @@
   --text-dim: #64748b;
 }
 
-/* PRINCÍPIO 3 — Tipografia */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; transition: color var(--dur) var(--ease); }
+a:hover { color: var(--accent-hover); }
+
 h1, h2, h3 {
   font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   font-weight: 700;
@@ -40,81 +112,308 @@ h2 { font-size: var(--fs-3); margin-bottom: var(--space-3); }
 h3 { font-size: var(--fs-1); margin-bottom: var(--space-2); }
 p { color: var(--text-muted); margin-bottom: var(--space-3); font-weight: 400; }
 
-/* PRINCÍPIO 2 — Espaçamento em seções */
-.section {
-  padding: var(--space-6) var(--space-4);
-}
-.section > h2 {
-  text-align: center;
-  margin-bottom: var(--space-5);
-}
-
 /* PRINCÍPIO 5 — Conteúdo real: seção Sobre com dados do CV */
 .sobre p { max-width: 65ch; margin: 0 auto var(--space-3) auto; }
 
-body {
-  background: #0a0a0f;
-  color: #f8fafc;
-  font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+/* ------------------------------------------------------------
+   PRINCÍPIO 4: Cor usada com parcimônia
+   Base neutra com UM destaque (--accent). Aplicado apenas em:
+   CTA primário, estado de foco e links.
+   PROIBIDO: gradiente no fundo, no título, nos botões ou em badges.
+   ------------------------------------------------------------ */
+:root {
+  --bg: #0a0a0f;
+  --surface: #0f1115;
+  --surface-hover: #15181f;
+  --border: #1e293b;
+  --accent: #22d3ee;
+  --accent-hover: #67e8f9;
+  --accent-glow: rgba(34, 211, 238, 0.25);
+  --ring: rgba(34, 211, 238, 0.4);
 }
-a { color: inherit; text-decoration: none; }
-* { box-sizing: border-box; margin: 0; padding: 0; }
 
-header.hero {
-  padding: 96px 16px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+/* ------------------------------------------------------------
+   PRINCÍPIO 6: Detalhes consistentes
+   Raio de borda único (12px); aninhados 8px.
+   Bordas de 1px, cor sutil.
+   Sombras suaves em camadas (2 a 3).
+   ------------------------------------------------------------ */
+:root {
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-1: 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+  --shadow-3: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
 }
-.hero::before {
+
+/* PRINCÍPIO 6 — Componentes consistentes */
+.grupo-competencia {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.grupo-competencia h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+.grupo-competencia ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.grupo-competencia li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-2);
+  position: relative;
+}
+.grupo-competencia li::before {
   content: "";
   position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, transparent 55%);
-  filter: blur(80px);
-  pointer-events: none;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
 }
-.hero-content { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
-.hero h1 {
-  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-  font-weight: 700;
-  letter-spacing: 0;
-  color: var(--text, #f8fafc);
-  font-size: 2.25rem;
-  margin-bottom: 16px;
+
+.projetos-lista {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.hero .tagline {
-  font-size: 1rem;
-  color: #94a3b8;
-  margin-bottom: 32px;
-  max-width: 60ch;
+.projeto-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--space-4);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.projeto-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-2);
+}
+.projeto-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+  font-size: 1.1rem;
+}
+.projeto-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-3);
+}
+.projeto-card .stack {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-3) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+.projeto-card .stack li {
+  font-size: 0.75rem;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  color: var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 2px var(--space-1);
+  margin-bottom: 0;
+}
+.projeto-card .link-projeto {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: gap var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.projeto-card .link-projeto:hover {
+  gap: 0.5rem;
+  color: var(--accent-hover);
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
+  position: relative;
+  padding-left: 3rem;
 }
-.hero .cta-primary {
-  display: inline-block;
-  padding: 8px 48px;
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  opacity: 0.5;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-5);
+}
+.timeline-item .timeline-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+.timeline-empresa {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+.timeline-periodo {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.timeline-content p {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.timeline-content li {
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  padding-left: 0;
+}
+.timeline-content li::before {
+  width: 4px;
+  height: 4px;
+  top: 0.55em;
+}
+
+.formacao-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.formacao-item h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+}
+.certificacoes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+.certificacoes li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: var(--space-1) var(--space-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.contatos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.contatos li {
+  margin-bottom: var(--space-2);
+}
+.contatos li a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+.contatos li a:hover { color: var(--accent-hover); }
+
+/* ------------------------------------------------------------
+   PRINCÍPIO 7: Movimento conectado à origem
+   Transições suaves, duração 150-250ms, easing de desaceleração.
+   Abertura mais lenta que o fechamento.
+   Respeita prefers-reduced-motion.
+   ------------------------------------------------------------ */
+.skip-links {
+  position: absolute;
+  left: -9999px;
+  top: var(--space-3);
+  z-index: 10000;
+}
+.skip-links a {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.skip-links a:focus {
+  left: var(--space-3);
+  top: var(--space-3);
+  width: auto;
+  height: auto;
+  overflow: visible;
   background: var(--accent);
   color: #051015;
-  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 10px 24px -8px rgba(34, 211, 238, 0.25);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  z-index: 10001;
   text-decoration: none;
 }
-.hero .cta-primary:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Responsivo — breakpoints 640px e 1024px (mobile-first) */
+@media (min-width: 640px) {
+  .container, .hero-content, .timeline, .projetos-lista {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .projetos-lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grupo-competencia {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+}
+@media (min-width: 1024px) {
+  .projetos-lista {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grupo-competencia {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .hero {
+    padding-top: var(--space-7);
+    padding-bottom: var(--space-6);
+  }
 }
