@@ -623,8 +623,8 @@ body::before {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  stroke: currentColor;
-  fill: none;
+  fill: currentColor;
+  stroke: none;
   display: block;
 }
 .endpoint-dados {
