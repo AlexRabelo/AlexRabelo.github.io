@@ -618,6 +618,14 @@ body::before {
   text-align: left;
 }
 
+/* Social links - melhorar legibilidade */
+.social-link span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--ink);
+  font-weight: 600;
+}
+
 /* ==========================================================================
    Rodapé
    ========================================================================== */
