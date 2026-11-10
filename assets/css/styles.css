@@ -606,7 +606,7 @@ body::before {
   padding: 0;
   border: none;
   border-radius: 9999px;
-  background: transparent;
+  background: var(--surface);
   color: var(--ink);
   text-decoration: none;
   transition: background-color 0.15s ease, color 0.15s ease;
