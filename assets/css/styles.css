@@ -601,6 +601,98 @@ footer {
 }
 
 /* ==========================================================================
+   Sobre — destaque da abordagem e lista de stack
+   ========================================================================== */
+.abordagem {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--accent);
+  margin-bottom: var(--space-4);
+  line-height: 1.5;
+}
+
+.stack-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.stack-list li {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: default;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.stack-list li:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   Projetos — tabela modulos_carregados
+   ========================================================================== */
+.modulos-table-wrap {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table.modulos {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+table.modulos th,
+table.modulos td {
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+table.modulos th {
+  color: var(--text-mute);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.05em;
+}
+
+table.modulos td {
+  color: var(--text-dim);
+}
+
+table.modulos tr:last-child td {
+  border-bottom: none;
+}
+
+table.modulos tr:hover td {
+  background: rgba(76, 201, 240, 0.03);
+}
+
+table.modulos td a {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+table.modulos td a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
    Reduced motion
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
