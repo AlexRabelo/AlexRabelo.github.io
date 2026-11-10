@@ -600,21 +600,23 @@ body::before {
 .icon-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  color: var(--ink);
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 9999px;
   background: transparent;
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
+  color: var(--ink);
   text-decoration: none;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 .icon-link:hover,
 .icon-link:focus-visible {
-  border-color: var(--accent);
+  background-color: var(--surface);
   color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
   text-decoration: none;
 }
 .icon-link svg {
@@ -624,14 +626,6 @@ body::before {
   stroke: currentColor;
   fill: none;
   display: block;
-}
-.icon-link span {
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: inherit;
-  line-height: 1;
-  white-space: nowrap;
 }
 .endpoint-dados {
   font-family: var(--font-mono);
