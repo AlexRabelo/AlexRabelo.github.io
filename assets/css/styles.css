@@ -584,9 +584,11 @@ body::before {
 }
 .social-icons {
   display: flex;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
   flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
   justify-content: flex-start;
 }
 .social-link {
@@ -595,41 +597,41 @@ body::before {
   gap: var(--space-2);
   margin-bottom: var(--space-3);
 }
-.social-link .icon-link {
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  background: var(--bg);
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  color: var(--ink);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
-.endpoint-box .icon-link {
-  width: 36px;
-  height: 36px;
-  padding: var(--space-2);
-  color: var(--ink); /* ícones dos canais em tom primário, bem visíveis */
-}
-.endpoint-box .icon-link:hover {
+.icon-link:hover,
+.icon-link:focus-visible {
   border-color: var(--accent);
-  transform: translateY(-2px);
+  color: var(--accent);
+  text-decoration: none;
 }
-.endpoint-box .icon-link:active {
-  transform: scale(0.96);
-}
-
-/* Dimensões e contraste consistentes dos ícones SVG nos canais de contato */
 .icon-link svg {
   width: 20px;
   height: 20px;
-  display: block;
-  fill: none;
+  flex-shrink: 0;
   stroke: currentColor;
-  color: var(--ink); /* garante stroke/fill currentColor visíveis */
+  fill: none;
+  display: block;
 }
-.icon-link svg:hover,
-.icon-link:focus-visible svg {
-  color: var(--accent);
+.icon-link span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: inherit;
+  line-height: 1;
+  white-space: nowrap;
 }
 .endpoint-dados {
   font-family: var(--font-mono);
@@ -640,12 +642,17 @@ body::before {
   text-align: left;
 }
 
-/* Social links - melhorar legibilidade */
-.social-link span {
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  color: var(--ink);
-  font-weight: 600;
+/* Responsivo — canais de contato não somam nem estouram em telas pequenas */
+@media (max-width: 639px) {
+  .social-icons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+  .icon-link {
+    justify-content: flex-start;
+    width: 100%;
+  }
 }
 
 /* ==========================================================================
