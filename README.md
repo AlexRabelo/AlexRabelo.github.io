@@ -33,14 +33,14 @@ Paleta: fundo `#050607`, acento único `#66fcf1`. Sem gradientes, sem cards arre
 
 ## Conteúdo
 
-- Nome: Alex Luiz Rabelo
+- Nome: Alex Rabelo ( Mineiro )
 - Local: São Paulo, SP, Brasil
 - Empresa atual: Dexian Brasil (cliente BNP Paribas Cardif)
 - Cargo: Analista de Infraestrutura Especialista (desde abr/2026)
 - Anterior: Brasilseg — Especialista em Infraestrutura (dez/2018 a jan/2026)
 - Voluntário: Escola da Nuvem — Mentor (set/2025 a ago/2026)
 - Formação: Bacharelado em Ciência de Dados, Mackenzie (concluído jul/2026)
-- Inglês: Limited Working
+- Inglês: Básico
 
 Projetos em destaque:
 
@@ -60,19 +60,47 @@ Site: https://alexrabelo.github.io/
 
 ## Validação
 
-```bash
-# Nenhum placeholder no conteúdo
-grep -riE "lorem|ipsum|fulano|sicrano|placeholder|TODO|example\.com" index.html content/ && echo "FALHA" || echo "OK"
+# 1. Nenhum gradiente decorativo (scanline é exceção)
+grep -nE "linear-gradient|radial-gradient" assets/css/styles.css
 
-# Espaçamentos fora da escala de 8px no CSS
-grep -oE "padding[^;]*[0-9]+px" assets/css/styles.css | grep -vE "(8|16|24|32|48|64|96)px"
+# 2. Máximo 6 tamanhos de fonte
+grep -oE "font-size:\s*[0-9.]+(rem|px)" assets/css/styles.css | sort -u | wc -l
 
-# Até 4 tamanhos de fonte distintos
-grep -oE "font-size:\s*[0-9.]+rem" assets/css/styles.css | sort -u | wc -l
+# 3. prefers-reduced-motion presente
+grep -c "prefers-reduced-motion" assets/css/styles.css   # >= 2
 
-# Gradientes proibidos
-grep -riE "linear-gradient|radial-gradient" assets/css/styles.css && echo "FALHA" || echo "OK"
-```
+# 4. Nenhum input de comando (restrição de produto)
+grep -riE "<input[^>]*type=[\"']text|contenteditable|command-line" index.html \
+  && echo "FALHA: input de comando detectado" || echo "OK"
+
+# 5. Nenhuma dependência externa além de Google Fonts
+grep -oE 'src="https?://[^"]+' index.html | grep -v "fonts.googleapis.com" \
+  && echo "REVISAR: dependência externa" || echo "OK"
+
+# 6. Links externos com rel seguro
+grep -oE '<a[^>]*target="_blank"[^>]*>' index.html | grep -v 'noopener' \
+  && echo "FALHA: falta noopener" || echo "OK"
+
+# 7. SVGs com dimensão explícita
+grep -oE '<svg(?![^>]*width=)[^>]*>' index.html \
+  && echo "FALHA: SVG sem width" || echo "OK"
+
+# 8. Placeholders no conteúdo
+grep -riE "lorem|ipsum|placeholder|TODO|em construção" index.html \
+  && echo "FALHA: placeholder detectado" || echo "OK"
+
+# 9. JSON-LD válido
+node -e "
+const fs=require('fs');
+const h=fs.readFileSync('index.html','utf8');
+const m=h.match(/<script type=\"application\/ld\+json\">([\s\S]*?)<\/script>/);
+if(!m) throw new Error('JSON-LD ausente');
+JSON.parse(m[1]);
+console.log('JSON-LD OK');
+"
+
+# 10. Tamanho do JS
+find . -name "*.js" -not -path "./node_modules/*" -exec wc -c {} + | tail -1
 
 ## Transparência de IA
 

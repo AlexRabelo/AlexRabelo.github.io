@@ -46,9 +46,9 @@
 <style>
 :root{
   --bg:#0D1117; --surface:#161B22; --surface-2:#1C2430; --surface-3:#24303d;
-  --border:#2B3742; --border-strong:#3A4756; --border-dim:#425262;
+  --border:#2B3742; --border-strong:#3A4756;
   --text:#E6EDF3; --text-dim:#8B949E; --text-mute:#94A3B8;
-  --accent:#4CC9F0; --ink:#E6EDF3; --mute:#6E7681;
+  --accent:#4CC9F0;
   --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --font-sans:"Inter",system-ui,-apple-system,sans-serif;
   --fs-xs:.75rem; --fs-sm:.875rem; --fs-base:1rem;
@@ -56,13 +56,9 @@
   --space-1:8px; --space-2:16px; --space-3:24px; --space-4:32px;
   --space-5:48px; --space-6:64px; --space-8:96px; --space-12:128px;
   --sp-1:var(--space-1); --sp-2:var(--space-2); --sp-3:var(--space-3);
-  --sp-4:var(--space-4); --sp-6:var(--space-6); --sp-8:var(--space-8);
-  --sp-12:var(--space-12);
-  --radius:4px; --radius-md:6px; --radius-lg:12px; --radius-full:9999px;
-  --shadow-focus:0 0 0 2px var(--accent);
-  --maxw:1120px;
-  --dur:200ms;
-  --ease:cubic-bezier(0.23,1,0.32,1);
+  --sp-4:var(--space-4); --sp-6:var(--space-6); --sp-8:var(--space-8); --sp-12:var(--space-12);
+  --radius:4px; --radius-sm:4px; --radius-md:6px; --radius-lg:12px; --radius-full:9999px;
+  --maxw:1120px; --dur:200ms; --ease:cubic-bezier(0.23,1,0.32,1);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -72,24 +68,15 @@ body{margin:0;background:var(--bg);color:var(--text);
 img,svg{display:block;max-width:100%;height:auto}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-h1{font-family:var(--font-mono);font-size:var(--fs-2xl);letter-spacing:-.02em;text-wrap:balance}
-h2{font-family:var(--font-sans);font-size:var(--fs-xl);letter-spacing:-.01em;text-wrap:balance;font-weight:600}
-h3{font-family:var(--font-sans);font-size:var(--fs-lg);font-weight:600}
-.nav,.badge,.tag,.timestamp,.status,.label,.pid,
-code,pre,kbd,samp{font-family:var(--font-mono);font-weight:600;line-height:1.2;margin:0}
-p{margin:0 0 var(--sp-2)}
 .container{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--sp-3)}
-.section{padding-block:var(--sp-8);border-top:1px solid var(--border)}
 .site-header{position:sticky;top:0;z-index:10;background:rgba(13,17,23,.92);
   backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
 .site-header .container{display:flex;align-items:center;justify-content:space-between;
   gap:var(--sp-3);min-height:64px}
-.wordmark{font-family:var(--font-mono);font-size:var(--fs-sm);font-weight:600;color:var(--text)}
 .nav{display:flex;gap:var(--sp-2);font-size:.8125rem;font-weight:400;
   letter-spacing:.04em;text-transform:uppercase}
 .nav a{color:var(--text-dim)}
 .nav a:hover,.nav a:focus-visible{color:var(--accent);text-decoration:none}
-.nav .sep{color:var(--text-mute)}
 .status{display:inline-flex;align-items:center;gap:var(--sp-1);
   font-size:.6875rem;letter-spacing:.04em;text-transform:uppercase;color:var(--text-dim)}
 .status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
@@ -102,35 +89,28 @@ p{margin:0 0 var(--sp-2)}
   letter-spacing:.02em;margin-bottom:var(--sp-3)}
 .hero .lede{font-family:var(--font-sans);font-size:var(--fs-base);color:var(--text-dim);
   max-width:62ch;margin-bottom:var(--sp-4)}
+.hero-visual{margin-top:var(--space-4)}
+.code-block{font-family:var(--font-mono);font-size:var(--fs-xs);
+  background:var(--surface-2);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:var(--space-3);overflow-x:auto;
+  color:var(--text-dim)}
+.code-block code{color:var(--text)}
+.hero-actions{display:flex;gap:var(--sp-2);flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:var(--sp-1);
   padding:var(--sp-1) var(--sp-2);font-family:var(--font-mono);font-size:var(--fs-sm);
-  border:1px solid var(--border);border-radius:var(--r-sm);color:var(--text);
+  border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);
   background:transparent;cursor:pointer;
-  transition:border-color .15s ease,color .15s ease,background .15s ease}
+  transition:border-color var(--dur) var(--ease),color var(--dur) var(--ease),background var(--dur) var(--ease)}
 .btn:hover,.btn:focus-visible{border-color:var(--accent);color:var(--accent);text-decoration:none}
 .btn:active{transform:scale(0.96)}
 .btn-primary{border-color:var(--accent);color:var(--bg);background:var(--accent)}
 .btn-primary:hover,.btn-primary:focus-visible{background:#66d9f0}
-.hero-actions{display:flex;gap:var(--sp-2);flex-wrap:wrap}
-
-/* Timeline — experiência segue o padrão de superfície/borda da página */
-.timeline{display:flex;flex-direction:column;gap:var(--sp-2)}
-.entry{display:grid;grid-template-columns:120px 1fr;gap:var(--sp-3);padding:var(--sp-3);background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-md);transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
-.entry:hover{background:var(--surface-3);border-color:var(--border-strong)}
-.entry:first-child{margin-top:0}
-.timestamp{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--accent);padding-top:2px;white-space:nowrap}
-.entry-body{display:flex;flex-direction:column;gap:4px}
-.entry-body h3{font-size:var(--fs-sm);color:var(--text);margin-bottom:0}
-.empresa{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--accent);margin-bottom:0}
-.entry-body p{font-family:var(--font-sans);font-size:var(--fs-sm);color:var(--text-dim);line-height:1.5;margin:0 0 var(--sp-1) 0}
-.entry-body p:last-child{margin-bottom:0}
-
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
   background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,
     rgba(255,255,255,.015) 3px,transparent 4px);opacity:.5}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+  *,::before,::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
     transition-duration:.01ms!important;scroll-behavior:auto!important}
   .status-dot{animation:none;opacity:1}
   body::before{display:none}
