@@ -138,7 +138,10 @@ p, li, .section-sub, .summary, .stat-label, .cert-list li, .log-body p { color: 
   color: var(--mute);
   text-decoration: none;
 }
-.shell-commands li a:hover, .shell-commands li a:focus-visible { color: var(--accent); }
+.shell-commands li a:hover, .shell-commands li a:focus-visible, .shell-commands li a.active {
+  color: var(--accent);
+  font-weight: 700;
+}
 
 /* Hero — tela de boot */
 .hero {
@@ -487,6 +490,20 @@ p, li, .section-sub, .summary, .stat-label, .cert-list li, .log-body p { color: 
 .endpoint-box .icon-link:active {
   transform: scale(0.96);
 }
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+.social-link .icon-link {
+  flex-shrink: 0;
+}
+.social-link span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--mute);
+}
 .endpoint-dados {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
@@ -527,6 +544,18 @@ footer {
   .boot { display: block; text-align: left; }
   .hero-actions { justify-content: flex-start; }
   .endpoint-box { margin: 0; }
+}
+@media (max-width: 639px) {
+  .process-table {
+    font-size: var(--fs-xs);
+  }
+  .process-table th,
+  .process-table td {
+    padding: var(--space-1) var(--space-2);
+  }
+  .projeto-desc, .projeto-stack {
+    display: none;
+  }
 }
 
 /* Reduced motion */
