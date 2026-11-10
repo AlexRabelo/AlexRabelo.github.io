@@ -20,6 +20,11 @@
   --warn:      #ff9f1c;
   --crit:      #ef4444;
 
+  /* Cores de texto — tokens ausentes referenciados pelo design system */
+  --ink:        var(--text);    /* texto primário / tinta */
+  --mute:       var(--text-dim);/* texto secundário / abatido */
+  --accent-dim: rgba(76, 201, 240, 0.2); /* acento abatido para bordas de chip */
+
   /* Tipografia */
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -47,6 +52,7 @@
 
   /* Raio e sombra */
   --radius: 6px;
+  --radius-full: 9999px;
   --shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
 
   /* Motion */
@@ -601,6 +607,7 @@ body::before {
 .endpoint-box .icon-link {
   width: 36px;
   height: 36px;
+  color: var(--ink); /* ícones dos canais em tom primário, bem visíveis */
 }
 .endpoint-box .icon-link:hover {
   border-color: var(--accent);
