@@ -149,6 +149,22 @@ p, li, .section-sub, .summary, .cert-list li, .log-body p {
   max-width: 62ch;
   margin-bottom: var(--space-5);
 }
+.hero-visual {
+  margin-top: var(--space-4);
+}
+.code-block {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  overflow-x: auto;
+  color: var(--text-dim);
+}
+.code-block code {
+  color: var(--text);
+}
 .hero-actions {
   display: flex;
   gap: var(--space-2);
