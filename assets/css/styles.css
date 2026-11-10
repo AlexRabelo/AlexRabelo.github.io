@@ -7,57 +7,10 @@
    ========================================================================== */
 
 /* ==========================================================================
-   Design Tokens
+   Design Tokens — definidos no :root inline de index.html (fonte única)
    ========================================================================== */
 :root {
-  /* Cores — Resend black velvet + Linear midnight */
-  --bg:        #000000;    /* canvas preto puro */
-  --surface:   #08090a;    /* superfície principal (Linear midnight) */
-  --surface-2: #0f1216;    /* superfície elevada (escada Linear) */
-  --surface-3: #16171a;    /* superfície ainda mais elevada */
-  --border:    #23252a;    /* borda hairline Linear */
-  --border-dim:#383b3f;    /* borda secundária */
-  --text:      #fdfdfd;    /* texto primário (papel branco) */
-  --text-dim:  rgba(255, 255, 255, 0.55);
-  --text-mute: rgba(255, 255, 255, 0.35);
-  --accent:    #4cc9f0;    /* ciano do Alex — único acento */
-  --accent-dim: rgba(76, 201, 240, 0.10);
-  --ok:        #2ecc71;
-
-  /* Tipografia — Resend: Inter + Commit Mono */
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-  /* Espaçamento — 8/12/24/96 ladder */
-  --space-1: 8px;
-  --space-2: 16px;
-  --space-3: 24px;
-  --space-4: 32px;
-  --space-5: 48px;
-  --space-6: 64px;
-  --space-7: 96px;
-
-  /* Tamanhos de fonte (máximo 600 para body, display pode ser mais) */
-  --fs-xs: 0.75rem;
-  --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  --fs-lg: 1.5rem;
-  --fs-xl: 2rem;
-  --fs-2xl: 3rem;
-
-  /* Max width */
-  --maxw: 1080px;
-
-  /* Raio — Resend: 100px para botões; Linear: 6-12px para cards */
-  --radius: 6px;
-  --radius-lg: 12px;
-  --radius-full: 9999px;
-
-  /* Sombra — NÃO usar para elevação (Linear proibido). Apenas foco. */
-  --shadow-focus: 0 0 0 2px var(--accent);
-
-  /* Motion */
-  --dur: 150ms;
+  --dur: 200ms;
   --ease: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -77,6 +30,7 @@ body {
 }
 img, svg { display: block; max-width: 100%; height: auto; }
 a { color: var(--accent); text-decoration: none; }
+a:visited { color: var(--text-mute); }
 a:hover { text-decoration: underline; }
 a:focus-visible, button:focus-visible { outline: var(--shadow-focus); outline-offset: 2px; }
 
@@ -84,16 +38,16 @@ a:focus-visible, button:focus-visible { outline: var(--shadow-focus); outline-of
    Tipografia
    ========================================================================== */
 h1, h2, h3, h4, h5, h6,
-.jetbrains, .prompt, .code, .btn-cmd {
+.code, .btn-cmd {
   font-family: var(--font-mono);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0;
 }
 h1 { font-size: var(--fs-2xl); line-height: 1.05; max-width: 60ch; }
-h2 { font-size: var(--fs-xl); line-height: 1.2; }
-h3 { font-size: var(--fs-lg); line-height: 1.35; }
-p, li, .section-sub, .summary, .stat-label, .cert-list li, .log-body p {
+h2 { font-size: var(--fs-xl); line-height: 1.2; font-family: var(--font-sans); font-weight: 600; }
+h3 { font-size: var(--fs-lg); line-height: 1.35; font-family: var(--font-sans); font-weight: 600; }
+p, li, .section-sub, .summary, .cert-list li, .log-body p {
   font-family: var(--font-sans);
   font-weight: 400;
   color: var(--text-dim);
@@ -132,13 +86,7 @@ p, li, .section-sub, .summary, .stat-label, .cert-list li, .log-body p {
   justify-content: space-between;
   gap: var(--space-4);
 }
-.prompt {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  color: var(--accent);
-  font-size: var(--fs-sm);
-  cursor: default;
-}
+
 .shell-commands {
   display: flex;
   gap: var(--space-4);
@@ -260,68 +208,101 @@ body::before {
    ========================================================================== */
 .sobre-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 320px;
   gap: var(--space-6);
   align-items: start;
 }
 .sobre-texto h3 {
-  margin-top: var(--space-4);
+  margin-top: var(--space-6);
   margin-bottom: var(--space-2);
 }
 .sobre-texto h3:first-child { margin-top: 0; }
-.skill-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+
+/* ==========================================================================
+   Sobre — stack técnica (botões agrupados à esquerda)
+   ========================================================================== */
+.stack-area {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-2);
 }
-.skill-chip {
+
+.stack-label {
   font-family: var(--font-mono);
-  font-size: var(--fs-sm);
-  font-weight: 400;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.stack-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.stack-btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
   color: var(--text-dim);
   padding: var(--space-1) var(--space-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-sm);
   background: var(--surface);
   cursor: default;
   transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
-.skill-chip:hover {
+
+.stack-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
-.skill-chip:focus-visible { outline: var(--shadow-focus); outline-offset: 2px; }
 
-.sobre-stats {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+.stack-btn:active {
+  transform: scale(0.96);
 }
-.stat {
+
+/* ==========================================================================
+   Sobre — informações mantidas (quadros à direita)
+   ========================================================================== */
+.info-area {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
-  padding: var(--space-4);
+  gap: var(--space-2);
+}
+
+.info-card {
   background: var(--surface-2);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
-.stat-value {
+
+.info-card:hover {
+  background: var(--surface-3);
+  border-color: var(--border-strong);
+}
+
+.info-label {
   font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: var(--fs-lg);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-.stat-value.ok { color: var(--ok); }
-.stat-label {
   font-size: var(--fs-xs);
-  color: var(--text-mute);
-  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: 2px;
 }
+
+.info-valor {
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  color: var(--text);
+  display: block;
+}
+/* fim regras órfãs */
 
 /* ==========================================================================
    Projetos — cards em escada de superfícies (Linear)
@@ -355,7 +336,8 @@ body::before {
 }
 .process-table td { color: var(--text-dim); }
 .process-table tr:hover td {
-  background: rgba(76, 201, 240, 0.03);
+  background: rgba(76, 201, 240, 0.06);
+  transition: background 0.15s ease;
 }
 .badge {
   font-family: var(--font-mono);
@@ -536,7 +518,9 @@ body::before {
   border-color: var(--accent);
   transform: translateY(-2px);
 }
-.endpoint-box .icon-link:active { transform: scale(0.96); }
+.endpoint-box .icon-link:active {
+  transform: scale(0.96);
+}
 
 .endpoint-dados {
   font-family: var(--font-mono);
@@ -598,6 +582,8 @@ footer {
   .process-table { font-size: var(--fs-xs); }
   .process-table th, .process-table td { padding: var(--space-1) var(--space-2); }
   .projeto-desc, .projeto-stack { display: none; }
+  .stack-grid { grid-template-columns: 1fr; }
+  .sobre-grid { grid-template-columns: 1fr; gap: var(--space-4); }
 }
 
 /* ==========================================================================
@@ -611,35 +597,8 @@ footer {
   line-height: 1.5;
 }
 
-.stack-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
+/* fim regras órfãs */
 
-.stack-list li {
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  color: var(--text-dim);
-  padding: var(--space-1) var(--space-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  cursor: default;
-  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
-}
-
-.stack-list li:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-/* ==========================================================================
-   Projetos — tabela modulos_carregados
-   ========================================================================== */
 .modulos-table-wrap {
   overflow-x: auto;
   width: 100%;
@@ -680,7 +639,8 @@ table.modulos tr:last-child td {
 }
 
 table.modulos tr:hover td {
-  background: rgba(76, 201, 240, 0.03);
+  background: rgba(76, 201, 240, 0.06);
+  transition: background 0.15s ease;
 }
 
 table.modulos td a {
@@ -693,6 +653,134 @@ table.modulos td a:hover {
 }
 
 /* ==========================================================================
+   Service cards — padrão único (usa em meta-card, entry, endpoint-box)
+   ========================================================================== */
+.service-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.service-card:hover {
+  background: var(--surface-3);
+  border-color: var(--border-strong);
+}
+
+.sobre-texto h3 {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-2);
+}
+.sobre-texto h3:first-child { margin-top: 0; }
+
+/* fim regras órfãs */
+
+/* Espaço acima maior que abaixo nos h2 de seção */
+.section h2 {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+/* ==========================================================================
+   Removidos: stack-list / skill-chip (substituídos por stack-group)
+   ========================================================================== */
+
+/* ==========================================================================
+   Skip link — acessibilidade (aparece apenas no foco)
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -10000px;
+  left: 0;
+  z-index: 10000;
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-lg) 0;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ==========================================================================
+   Tabela modulos_carregados — botão GitHub
+   ========================================================================== */
+table.modulos td a.btn-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  color: var(--text-dim);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+table.modulos td a.btn-github:hover,
+table.modulos td a.btn-github:focus-visible {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+table.modulos td a.btn-github:active {
+  transform: scale(0.94);
+}
+
+/* Ícone dentro do botão GitHub da tabela */
+table.modulos td a.btn-github svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  color: inherit;
+}
+
+/* ==========================================================================
+   Botões dos canais — social-icons (contato)
+   ========================================================================== */
+.social-icons .icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.social-icons .icon-link:hover,
+.social-icons .icon-link:focus-visible {
+  background: var(--surface-2);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.social-icons .icon-link:active {
+  transform: scale(0.94);
+}
+.social-icons .icon-link svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: block;
+  color: inherit;
+}
+
+/* Ícones sociais dentro do endpoint-box — cor sólida e visível */
+.endpoint-box .icon-link svg {
+  fill: currentColor;
+  color: inherit;
+}
+
+/* ==========================================================================
    Reduced motion
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
@@ -702,7 +790,6 @@ table.modulos td a:hover {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .prompt::after { animation: none; opacity: 1; }
   .status-dot { animation: none; opacity: 1; }
   body::before { display: none; }
   [data-boot] { animation: none !important; clip-path: none !important; }
