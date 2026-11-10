@@ -231,23 +231,23 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
         <div class="stack-area">
           <span class="stack-label">stack técnica</span>
           <div class="stack-btns">
-            <button class="stack-btn">AWS</button>
-            <button class="stack-btn">Azure</button>
-            <button class="stack-btn">Terraform</button>
-            <button class="stack-btn">Ansible</button>
-            <button class="stack-btn">Docker</button>
-            <button class="stack-btn">Kubernetes</button>
-            <button class="stack-btn">GitHub Actions</button>
-            <button class="stack-btn">Jenkins</button>
-            <button class="stack-btn">Shell Script</button>
-            <button class="stack-btn">Bash</button>
-            <button class="stack-btn">PowerShell</button>
-            <button class="stack-btn">Python</button>
-            <button class="stack-btn">Observabilidade</button>
-            <button class="stack-btn">RAG</button>
-            <button class="stack-btn">LLMOps</button>
-            <button class="stack-btn">FinOps</button>
-            <button class="stack-btn">GitOps</button>
+            <span class="stack-btn">AWS</span>
+            <span class="stack-btn">Azure</span>
+            <span class="stack-btn">Terraform</span>
+            <span class="stack-btn">Ansible</span>
+            <span class="stack-btn">Docker</span>
+            <span class="stack-btn">Kubernetes</span>
+            <span class="stack-btn">GitHub Actions</span>
+            <span class="stack-btn">Jenkins</span>
+            <span class="stack-btn">Shell Script</span>
+            <span class="stack-btn">Bash</span>
+            <span class="stack-btn">PowerShell</span>
+            <span class="stack-btn">Python</span>
+            <span class="stack-btn">Observabilidade</span>
+            <span class="stack-btn">RAG</span>
+            <span class="stack-btn">LLMOps</span>
+            <span class="stack-btn">FinOps</span>
+            <span class="stack-btn">GitOps</span>
           </div>
         </div>
         <div class="info-area service-card" aria-label="Dados profissionais">
@@ -292,7 +292,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
               <th scope="col">PID</th>
               <th scope="col">NOME</th>
               <th scope="col">STACK</th>
-              <th scope="col">STATUS</th>
+              <th style="display:none" scope="col">STATUS</th>
               <th scope="col">ATUALIZADO</th>
               <th scope="col">LINK</th>
             </tr>
@@ -302,57 +302,57 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
               <td>001</td>
               <td>lab-redhat-wsl2</td>
               <td>RHEL · WSL2 · Shell Script</td>
-              <td>ativo</td>
+              <td style="display:none">ativo</td>
               <td>nov/2026</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/lab-redhat-wsl2" target="_blank" rel="noopener noreferrer" aria-label="Abrir lab-redhat-wsl2 no GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C-4.422 18.01-3.09 17.5-3.09 17.5c-2.27-1.55-1.7-.91-1.7-.91 1.47.24 2.15 1.75 2.15 1.75 1.73 2.49 3.31 1.9 3.78 1.28.12-.87.42-1.38.75-1.72-2.67-.33-5.47-1.34-5.47-6.14 0-1.36.47-2.48 1.24-3.35-.13-.33-.58-1.58-.12-1.99 0 0 1-.32 3.26 1.21a8.55 8.55 0 0 1 2.38-.42c1.03 0 2.07.23 3.13.6.77-.21 1.59-.33 2.45-.33.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6 1.38 0 2.59.27 3.49.67.77.52.98 1.42.98 2.19 0 4.81-2.8 5.81-5.58 6.13.44.39.84.91.84 1.49 0 1.07-.01 1.94-.01 2.2 0 .32.22.69.84.79 4.76-1.58 8.19-6.08 8.19-11.39 0-6.627-5.373-12-12-12z"/></svg></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/lab-redhat-wsl2" target="_blank" rel="noopener noreferrer" aria-label="Abrir lab-redhat-wsl2 no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
             </tr>
             <tr>
               <td>002</td>
               <td>sre-lpi-lab</td>
               <td>AWS Local Lab · Amazon Linux 2023 · VirtualBox</td>
-              <td>ativo</td>
+              <td style="display:none">ativo</td>
               <td>nov/2026</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/sre-lpi-lab" target="_blank" rel="noopener noreferrer" aria-label="Abrir sre-lpi-lab no GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C-4.422 18.01-3.09 17.5-3.09 17.5c-2.27-1.55-1.7-.91-1.7-.91 1.47.24 2.15 1.75 2.15 1.75 1.73 2.49 3.31 1.9 3.78 1.28.12-.87.42-1.38.75-1.72-2.67-.33-5.47-1.34-5.47-6.14 0-1.36.47-2.48 1.24-3.35-.13-.33-.58-1.58-.12-1.99 0 0 1-.32 3.26 1.21a8.55 8.55 0 0 1 2.38-.42c1.03 0 2.07.23 3.13.6.77-.21 1.59-.33 2.45-.33.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6 1.38 0 2.59.27 3.49.67.77.52.98 1.42.98 2.19 0 4.81-2.8 5.81-5.58 6.13.44.39.84.91.84 1.49 0 1.07-.01 1.94-.01 2.2 0 .32.22.69.84.79 4.76-1.58 8.19-6.08 8.19-11.39 0-6.627-5.373-12-12-12z"/></svg></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/sre-lpi-lab" target="_blank" rel="noopener noreferrer" aria-label="Abrir sre-lpi-lab no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
             </tr>
             <tr>
               <td>003</td>
               <td>ShellScript</td>
               <td>Shell</td>
-              <td>ativo</td>
+              <td style="display:none">ativo</td>
               <td>nov/2026</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/ShellScript" target="_blank" rel="noopener noreferrer" aria-label="Abrir ShellScript no GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C-4.422 18.01-3.09 17.5-3.09 17.5c-2.27-1.55-1.7-.91-1.7-.91 1.47.24 2.15 1.75 2.15 1.75 1.73 2.49 3.31 1.9 3.78 1.28.12-.87.42-1.38.75-1.72-2.67-.33-5.47-1.34-5.47-6.14 0-1.36.47-2.48 1.24-3.35-.13-.33-.58-1.58-.12-1.99 0 0 1-.32 3.26 1.21a8.55 8.55 0 0 1 2.38-.42c1.03 0 2.07.23 3.13.6.77-.21 1.59-.33 2.45-.33.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6 1.38 0 2.59.27 3.49.67.77.52.98 1.42.98 2.19 0 4.81-2.8 5.81-5.58 6.13.44.39.84.91.84 1.49 0 1.07-.01 1.94-.01 2.2 0 .32.22.69.84.79 4.76-1.58 8.19-6.08 8.19-11.39 0-6.627-5.373-12-12-12z"/></svg></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/ShellScript" target="_blank" rel="noopener noreferrer" aria-label="Abrir ShellScript no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
             </tr>
             <tr>
               <td>004</td>
               <td>ProjetoAplicado_03</td>
               <td>Machine Learning · Recomendação de livros</td>
-              <td>ativo</td>
+              <td style="display:none">ativo</td>
               <td>set/2025</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/ProjetoAplicado_03" target="_blank" rel="noopener noreferrer" aria-label="Abrir ProjetoAplicado_03 no GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C-4.422 18.01-3.09 17.5-3.09 17.5c-2.27-1.55-1.7-.91-1.7-.91 1.47.24 2.15 1.75 2.15 1.75 1.73 2.49 3.31 1.9 3.78 1.28.12-.87.42-1.38.75-1.72-2.67-.33-5.47-1.34-5.47-6.14 0-1.36.47-2.48 1.24-3.35-.13-.33-.58-1.58-.12-1.99 0 0 1-.32 3.26 1.21a8.55 8.55 0 0 1 2.38-.42c1.03 0 2.07.23 3.13.6.77-.21 1.59-.33 2.45-.33.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6 1.38 0 2.59.27 3.49.67.77.52.98 1.42.98 2.19 0 4.81-2.8 5.81-5.58 6.13.44.39.84.91.84 1.49 0 1.07-.01 1.94-.01 2.2 0 .32.22.69.84.79 4.76-1.58 8.19-6.08 8.19-11.39 0-6.627-5.373-12-12-12z"/></svg></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/ProjetoAplicado_03" target="_blank" rel="noopener noreferrer" aria-label="Abrir ProjetoAplicado_03 no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
             </tr>
             <tr>
               <td>005</td>
               <td>iac-aws-terraform-demo</td>
               <td>Terraform · AWS · IaC · DevOps</td>
-              <td>ativo</td>
+              <td style="display:none">ativo</td>
               <td>set/2025</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/iac-aws-terraform-demo" target="_blank" rel="noopener noreferrer" aria-label="Abrir iac-aws-terraform-demo no GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C-4.422 18.01-3.09 17.5-3.09 17.5c-2.27-1.55-1.7-.91-1.7-.91 1.47.24 2.15 1.75 2.15 1.75 1.73 2.49 3.31 1.9 3.78 1.28.12-.87.42-1.38.75-1.72-2.67-.33-5.47-1.34-5.47-6.14 0-1.36.47-2.48 1.24-3.35-.13-.33-.58-1.58-.12-1.99 0 0 1-.32 3.26 1.21a8.55 8.55 0 0 1 2.38-.42c1.03 0 2.07.23 3.13.6.77-.21 1.59-.33 2.45-.33.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6 1.38 0 2.59.27 3.49.67.77.52.98 1.42.98 2.19 0 4.81-2.8 5.81-5.58 6.13.44.39.84.91.84 1.49 0 1.07-.01 1.94-.01 2.2 0 .32.22.69.84.79 4.76-1.58 8.19-6.08 8.19-11.39 0-6.627-5.373-12-12-12z"/></svg></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/iac-aws-terraform-demo" target="_blank" rel="noopener noreferrer" aria-label="Abrir iac-aws-terraform-demo no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
             </tr>
             <tr>
               <td>006</td>
               <td>dio-lab-open-source</td>
               <td>Jupyter Notebook · DIO Open Source Lab</td>
-              <td>ativo</td>
+              <td style="display:none">ativo</td>
               <td>jul/2024</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/dio-lab-open-source" target="_blank" rel="noopener noreferrer" aria-label="Abrir dio-lab-open-source no GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C-4.422 18.01-3.09 17.5-3.09 17.5c-2.27-1.55-1.7-.91-1.7-.91 1.47.24 2.15 1.75 2.15 1.75 1.73 2.49 3.31 1.9 3.78 1.28.12-.87.42-1.38.75-1.72-2.67-.33-5.47-1.34-5.47-6.14 0-1.36.47-2.48 1.24-3.35-.13-.33-.58-1.58-.12-1.99 0 0 1-.32 3.26 1.21a8.55 8.55 0 0 1 2.38-.42c1.03 0 2.07.23 3.13.6.77-.21 1.59-.33 2.45-.33.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6 1.38 0 2.59.27 3.49.67.77.52.98 1.42.98 2.19 0 4.81-2.8 5.81-5.58 6.13.44.39.84.91.84 1.49 0 1.07-.01 1.94-.01 2.2 0 .32.22.69.84.79 4.76-1.58 8.19-6.08 8.19-11.39 0-6.627-5.373-12-12-12z"/></svg></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/dio-lab-open-source" target="_blank" rel="noopener noreferrer" aria-label="Abrir dio-lab-open-source no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
             </tr>
             <tr>
               <td>007</td>
               <td>python-week-2022</td>
               <td>Python · Python Week 2022 Template</td>
-              <td>ativo</td>
+              <td style="display:none">ativo</td>
               <td>abr/2022</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/python-week-2022" target="_blank" rel="noopener noreferrer" aria-label="Abrir python-week-2022 no GitHub"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C-4.422 18.01-3.09 17.5-3.09 17.5c-2.27-1.55-1.7-.91-1.7-.91 1.47.24 2.15 1.75 2.15 1.75 1.73 2.49 3.31 1.9 3.78 1.28.12-.87.42-1.38.75-1.72-2.67-.33-5.47-1.34-5.47-6.14 0-1.36.47-2.48 1.24-3.35-.13-.33-.58-1.58-.12-1.99 0 0 1-.32 3.26 1.21a8.55 8.55 0 0 1 2.38-.42c1.03 0 2.07.23 3.13.6.77-.21 1.59-.33 2.45-.33.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6.86 0 1.68.12 2.44.33 1.06-.37 2.1-.6 3.13-.6 1.38 0 2.59.27 3.49.67.77.52.98 1.42.98 2.19 0 4.81-2.8 5.81-5.58 6.13.44.39.84.91.84 1.49 0 1.07-.01 1.94-.01 2.2 0 .32.22.69.84.79 4.76-1.58 8.19-6.08 8.19-11.39 0-6.627-5.373-12-12-12z"/></svg></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/python-week-2022" target="_blank" rel="noopener noreferrer" aria-label="Abrir python-week-2022 no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
             </tr>
           </tbody>
         </table>
