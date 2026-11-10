@@ -7,30 +7,6 @@
    ========================================================================== */
 
 /* ==========================================================================
-   Design Tokens — única fonte de verdade
-   ========================================================================== */
-:root {
-  --bg:#0D1117; --surface:#161B22; --surface-2:#1C2430; --surface-3:#24303d;
-  --border:#2B3742; --border-strong:#3A4756; --border-dim:#425262;
-  --text:#E6EDF3; --text-dim:#8B949E; --text-mute:#94A3B8;
-  --accent:#4CC9F0; --ink:#E6EDF3; --mute:#6E7681;
-  --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --font-sans:"Inter",system-ui,-apple-system,sans-serif;
-  --fs-xs:.75rem; --fs-sm:.875rem; --fs-base:1rem;
-  --fs-lg:1.5rem; --fs-xl:2rem; --fs-2xl:3rem;
-  --space-1:8px; --space-2:16px; --space-3:24px; --space-4:32px;
-  --space-5:48px; --space-6:64px; --space-8:96px; --space-12:128px;
-  --sp-1:var(--space-1); --sp-2:var(--space-2); --sp-3:var(--space-3);
-  --sp-4:var(--space-4); --sp-6:var(--space-6); --sp-8:var(--space-8);
-  --sp-12:var(--space-12);
-  --radius:4px; --radius-md:6px; --radius-lg:12px; --radius-full:9999px;
-  --shadow-focus:0 0 0 2px var(--accent);
-  --maxw:1120px;
-  --dur: 200ms;
-  --ease: cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* ==========================================================================
    Reset e base
    ========================================================================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -753,8 +729,20 @@ table.modulos td a.btn-github:active {
 
 /* Ícone dentro do botão GitHub da tabela */
 table.modulos td a.btn-github img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Texto do botão GitHub */
+table.modulos td a.btn-github span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  margin-left: var(--sp-1);
+  white-space: nowrap;
+}
+table.modulos td a.btn-github:hover span {
+  color: var(--accent);
 }
 
 /* ==========================================================================

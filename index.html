@@ -30,6 +30,8 @@
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#0D1117">
+<link rel="apple-touch-icon" href="favicon.svg">
 
 <!-- Fontes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +61,8 @@
   --radius:4px; --radius-md:6px; --radius-lg:12px; --radius-full:9999px;
   --shadow-focus:0 0 0 2px var(--accent);
   --maxw:1120px;
+  --dur:200ms;
+  --ease:cubic-bezier(0.23,1,0.32,1);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -105,8 +109,8 @@ p{margin:0 0 var(--sp-2)}
   transition:border-color .15s ease,color .15s ease,background .15s ease}
 .btn:hover,.btn:focus-visible{border-color:var(--accent);color:var(--accent);text-decoration:none}
 .btn:active{transform:scale(0.96)}
-.btn-primary{border-color:var(--accent);color:var(--accent)}
-.btn-primary:hover,.btn-primary:focus-visible{background:rgba(76,201,240,.08)}
+.btn-primary{border-color:var(--accent);color:var(--bg);background:var(--accent)}
+.btn-primary:hover,.btn-primary:focus-visible{background:#66d9f0}
 .hero-actions{display:flex;gap:var(--sp-2);flex-wrap:wrap}
 
 /* Timeline — experiência segue o padrão de superfície/borda da página */
@@ -212,8 +216,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
 }</code></pre>
       </div>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#projetos">ver projetos</a>
-        <a class="btn" href="#contato">contato</a>
+        <a class="btn btn-primary" href="#contato">contato</a>
+        <a class="btn" href="#projetos">ver projetos</a>
       </div>
     </div>
   </section>
@@ -304,7 +308,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
               <td>RHEL · WSL2 · Shell Script</td>
               <td style="display:none">ativo</td>
               <td>nov/2026</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/lab-redhat-wsl2" target="_blank" rel="noopener noreferrer" aria-label="Abrir lab-redhat-wsl2 no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/lab-redhat-wsl2" target="_blank" rel="noopener noreferrer" aria-label="Abrir lab-redhat-wsl2 no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"><span>ver repositório</span></a></td>
             </tr>
             <tr>
               <td>002</td>
@@ -312,7 +316,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
               <td>AWS Local Lab · Amazon Linux 2023 · VirtualBox</td>
               <td style="display:none">ativo</td>
               <td>nov/2026</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/sre-lpi-lab" target="_blank" rel="noopener noreferrer" aria-label="Abrir sre-lpi-lab no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/sre-lpi-lab" target="_blank" rel="noopener noreferrer" aria-label="Abrir sre-lpi-lab no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"><span>ver repositório</span></a></td>
             </tr>
             <tr>
               <td>003</td>
@@ -320,7 +324,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
               <td>Shell</td>
               <td style="display:none">ativo</td>
               <td>nov/2026</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/ShellScript" target="_blank" rel="noopener noreferrer" aria-label="Abrir ShellScript no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/ShellScript" target="_blank" rel="noopener noreferrer" aria-label="Abrir ShellScript no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"><span>ver repositório</span></a></td>
             </tr>
             <tr>
               <td>004</td>
@@ -328,7 +332,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
               <td>Machine Learning · Recomendação de livros</td>
               <td style="display:none">ativo</td>
               <td>set/2025</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/ProjetoAplicado_03" target="_blank" rel="noopener noreferrer" aria-label="Abrir ProjetoAplicado_03 no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/ProjetoAplicado_03" target="_blank" rel="noopener noreferrer" aria-label="Abrir ProjetoAplicado_03 no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"><span>ver repositório</span></a></td>
             </tr>
             <tr>
               <td>005</td>
@@ -336,7 +340,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
               <td>Terraform · AWS · IaC · DevOps</td>
               <td style="display:none">ativo</td>
               <td>set/2025</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/iac-aws-terraform-demo" target="_blank" rel="noopener noreferrer" aria-label="Abrir iac-aws-terraform-demo no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/iac-aws-terraform-demo" target="_blank" rel="noopener noreferrer" aria-label="Abrir iac-aws-terraform-demo no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"><span>ver repositório</span></a></td>
             </tr>
             <tr>
               <td>006</td>
@@ -344,7 +348,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
               <td>Jupyter Notebook · DIO Open Source Lab</td>
               <td style="display:none">ativo</td>
               <td>jul/2024</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/dio-lab-open-source" target="_blank" rel="noopener noreferrer" aria-label="Abrir dio-lab-open-source no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/dio-lab-open-source" target="_blank" rel="noopener noreferrer" aria-label="Abrir dio-lab-open-source no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"><span>ver repositório</span></a></td>
             </tr>
             <tr>
               <td>007</td>
@@ -352,7 +356,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
               <td>Python · Python Week 2022 Template</td>
               <td style="display:none">ativo</td>
               <td>abr/2022</td>
-              <td><a class="btn-github" href="https://github.com/AlexRabelo/python-week-2022" target="_blank" rel="noopener noreferrer" aria-label="Abrir python-week-2022 no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"></a></td>
+              <td><a class="btn-github" href="https://github.com/AlexRabelo/python-week-2022" target="_blank" rel="noopener noreferrer" aria-label="Abrir python-week-2022 no GitHub"><img src="assets/img/github.svg" width="16" height="16" alt="" aria-hidden="true"><span>ver repositório</span></a></td>
             </tr>
           </tbody>
         </table>
