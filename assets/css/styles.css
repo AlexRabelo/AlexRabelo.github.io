@@ -607,6 +607,7 @@ body::before {
 .endpoint-box .icon-link {
   width: 36px;
   height: 36px;
+  padding: var(--space-2);
   color: var(--ink); /* ícones dos canais em tom primário, bem visíveis */
 }
 .endpoint-box .icon-link:hover {
@@ -622,6 +623,8 @@ body::before {
   width: 20px;
   height: 20px;
   display: block;
+  fill: none;
+  stroke: currentColor;
   color: var(--ink); /* garante stroke/fill currentColor visíveis */
 }
 .icon-link svg:hover,
