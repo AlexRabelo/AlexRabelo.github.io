@@ -143,16 +143,17 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
   border-left:3px solid var(--accent);border-radius:var(--radius-md);padding:var(--space-3);
   transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
 .info-card:hover{background:var(--surface-3);border-color:var(--border-strong)}
-.info-led{position:absolute;top:var(--space-1);left:var(--space-1);width:8px;height:8px;
+.info-card-hero{background:var(--surface-3);border-color:var(--accent)}
+.info-card-hero:hover{background:var(--surface-3);border-color:var(--accent)}
+.info-led{position:absolute;top:var(--space-1);right:var(--space-1);width:8px;height:8px;
   border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(102,252,241,0.4)}
 .info-card:hover .info-led{box-shadow:0 0 12px rgba(102,252,241,0.8)}
 .info-label{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:0.06em;
   text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:2px}
 .info-valor{font-family:var(--font-mono);font-size:var(--fs-base);color:var(--text);display:block}
+.info-valor-hero{font-family:var(--font-mono);font-size:3.5rem;font-weight:600;
+  color:var(--accent);line-height:1;display:block;margin-bottom:-0.1em}
 .info-valor-menor{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-dim);display:block;margin-top:var(--sp-1)}
-.info-proc{position:absolute;top:var(--space-1);right:var(--space-1);
-  font-family:var(--font-mono);font-size:2rem;font-weight:600;color:rgba(102,252,241,0.12);
-  line-height:1}
 
 /* Experiência — timeline */
 .timeline{display:flex;flex-direction:column;gap:var(--space-2)}
