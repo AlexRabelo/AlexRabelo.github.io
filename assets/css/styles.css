@@ -285,3 +285,153 @@ footer{border-top:1px solid var(--border);padding:var(--space-5) 0 var(--space-6
   table.modulos td a:hover{color:var(--accent);text-decoration:underline}
   table.modulos tr:hover td{background:rgba(102,252,241,0.06)}
 }
+
+/* ==========================================================================
+   Polish Premium — 7 Princípios de Design
+   ========================================================================== */
+
+/* 1. Ponto Focal: um único CTA primário (contato) */
+.hero-actions {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  align-items: center;
+}
+.hero-actions .btn:not(.btn-primary) {
+  border-color: var(--border-strong);
+  color: var(--text-dim);
+}
+.hero-actions .btn:not(.btn-primary):hover,
+.hero-actions .btn:not(.btn-primary):focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* 2. Espaçamento: padding vertical consistente e respiro entre elementos */
+.section {
+  padding-top: var(--sp-8);
+  padding-bottom: var(--sp-8);
+}
+.section > .container > * + * {
+  margin-top: var(--space-4);
+}
+
+/* 3. Tipografia: h1 mais contido, headline sutil */
+.hero h1 {
+  font-size: 2.25rem;
+  letter-spacing: -0.03em;
+}
+.hero .headline {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-3);
+}
+
+/* 4. Cor: mantida — nenhuma mudança necessária (paleta já respeita regra) */
+
+/* 5. Conteúdo: estado ativo visível na navegação */
+.nav a[aria-current="page"],
+.nav a.active {
+  color: var(--accent);
+}
+.nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* 6. Detalhes: sombras refinadas, bordas refinadas, borda esquerda ciano */
+.info-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.info-card:hover {
+  box-shadow: 0 4px 12px rgba(102, 252, 241, 0.08);
+}
+.info-card-hero {
+  background: var(--surface-3);
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(102, 252, 241, 0.12);
+}
+.info-card-hero:hover {
+  background: var(--surface-3);
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(102, 252, 241, 0.16);
+}
+.info-card-hero .info-valor-hero {
+  font-size: 3rem;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+.entry {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.entry:hover {
+  box-shadow: 0 4px 12px rgba(102, 252, 241, 0.06);
+}
+.table.modulos tr:last-child td {
+  border-bottom: none;
+}
+
+/* Botões com profundidade sutil */
+.btn {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.btn:hover, .btn:focus-visible {
+  box-shadow: 0 4px 8px rgba(102, 252, 241, 0.15);
+}
+.btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Ícones sociais com preenchimento no hover */
+.icon-link {
+  position: relative;
+  overflow: hidden;
+}
+.icon-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scale(0);
+  transition: transform var(--dur) var(--ease);
+  z-index: -1;
+}
+.icon-link:hover::before,
+.icon-link:focus-visible::before {
+  transform: scale(1);
+}
+.icon-link:hover span,
+.icon-link:focus-visible span {
+  color: var(--bg);
+}
+.icon-link:hover svg,
+.icon-link:focus-visible svg {
+  color: var(--bg);
+}
+
+/* 7. Motion: scroll suave com offset para header sticky */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+.section {
+  scroll-margin-top: 80px;
+}
+
+/* Animação de entrada sutil para seções */
+.section {
+  opacity: 1;
+  transition: opacity var(--dur) var(--ease);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .section {
+    animation: fadeIn var(--dur) var(--ease) both;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
