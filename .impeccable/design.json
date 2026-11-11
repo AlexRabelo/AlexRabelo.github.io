@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-11T13:21:46Z",
+  "generatedAt": "2026-11-11T14:00:00Z",
   "title": "Design System: Alex Rabelo — Portfólio",
   "extensions": {
     "colorMeta": {
@@ -25,7 +25,10 @@
     "shadows": [],
     "motion": [
       { "name": "ease-standard", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Easing padrão para transições de estado (hover, foco-visible, cartões)." },
-      { "name": "dur-standard", "value": "200ms", "purpose": "Duração padrão de transições de estado." }
+      { "name": "dur-standard", "value": "200ms", "purpose": "Duração padrão de transições de estado." },
+      { "name": "nav-underline", "value": "transform scaleX(0→1), origem esquerda, duração 200ms, easing cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Underline ciano que se expande da esquerda em links de navegação e contato no hover/focus-visible." },
+      { "name": "status-glow", "value": "box-shadow 0 0 8px rgba(102,252,241,0.4)", "purpose": "Glow ciano suave no ponto de status .status-dot, indicando 'online'." },
+      { "name": "btn-active", "value": "transform scale(0.96) ghost / scale(0.98) primário", "purpose": "Feedback tátil de pressão em botões no estado :active." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" }

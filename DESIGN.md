@@ -129,14 +129,14 @@ Paleta enxuta de um único acento ciano sobre neutros de preto-vulcão a cinza-q
 
 ## Layout
 
-Modelo de container único: largura máxima 1120px, centralizado, padding horizontal 24px (space-3). Seções com padding vertical 64px (space-8) e borda superior hairline 1px #2B3742. Cabeçalho fixo (sticky) no topo com desfocagem de fundo (backdrop-filter blur 12px), cor rgba(13,17,23,.92), borda inferior hairline e altura mínima 64px. O ritmo de espaçamento escala em 8/16/24/32/48/64/128px (space-1 a space-8). Parágrafos de corpo limitam a linha a 65ch para leitura confortável.
+Modelo de container único: largura máxima 1120px, centralizado, padding horizontal 24px (space-3). Seções com padding vertical 128px (space-8) e borda superior hairline 1px #2B3742. Cabeçalho fixo (sticky) no topo com desfocagem de fundo (backdrop-filter blur 12px), cor rgba(13,17,23,.92), borda inferior hairline e altura mínima 64px. O ritmo de espaçamento escala em 8/16/24/32/48/64/128px (space-1 a space-8). Parágrafos de corpo limitam a linha a 65ch para leitura confortável.
 
 ### Responsivo (640px)
 Em telas até 640px: display cai para 2rem, headline para 1.5rem, o hero reduz padding vertical para 48px (space-6), a grade de "sobre" colapsa para uma coluna, a navegação vira um menu absoluto à direita e a tabela de projetos se transforma em cards empilhados.
 
 ## Elevation & Depth
 
-O sistema é flat-by-default: não usa sombras projetadas (box-shadow). A profundidade é transmitida por camadas tonais (fundo → superfície → superfície-2 → superfície-3) e por bordas hairline #2B3742. No hover, cartões e entradas sobem para superfície-3 com borda #3A4756. O foco por teclado usa outline 2px #66fcf1 com deslocamento de 3px. Sob prefers-reduced-motion, animações e transições são reduzidas a 0.01ms e a scanline some.
+O sistema é flat-by-default: não usa sombras projetadas (box-shadow) para cartões ou containers. A profundidade é transmitida por camadas tonais (fundo → superfície → superfície-2 → superfície-3) e por bordas hairline #2B3742. No hover, cartões e entradas sobem para superfície-3 com borda #3A4756. O foco por teclado usa outline 2px #66fcf1 com deslocamento de 3px. Sob prefers-reduced-motion, animações e transições são reduzidas a 0.01ms e a scanline some. Exceção deliberada: o ponto de status `.status-dot` carrega um box-shadow suave (glow ciano rgba(102,252,241,0.4)) para indicar "online" sem quebrar a estética de terminal.
 
 ## Shapes
 
@@ -171,8 +171,16 @@ Não há campos de formulário no site (sem inputs de comando nem contenteditabl
 - **Style:** fundo #161B22 (superfície), borda 1px #2B3742, raio 4px (sm), fonte mono fs-sm (0.875rem).
 - **Cabeçalhos:** #8B949E, peso 600, tamanho 0.8125rem, maiúsculo, letter-spacing 0.05em.
 - **Células:** #94A3B8, alinhamento numérico tabular.
-- **Hover da linha:** fundo rgba(102,252,241,0.06).
+- **Hover da linha:** fundo rgba(102,252,241,0.06) com border-left ciano 3px (linha ativa).
 - **Mobile:** cada linha vira um card empilhado com fundo #161B22, borda #2B3742, raio 6px e padding 24px.
+
+### Delight — Microinterações (terminal/SRE)
+Sutis, coerentes com o tema de produção, sem animações gratuitas. Todas respeitam `prefers-reduced-motion` (reduzidas a 0.01ms).
+- **Links de navegação (.nav a):** underline ciano que se expande da esquerda (`::after` com `scaleX`) no hover/focus-visible.
+- **Links de contato (.icon-link):** mesmo underline expandido no hover/focus-visible.
+- **Status dot (.status-dot):** box-shadow ciano suave (`rgba(102,252,241,0.4)`) indicando "online".
+- **Botões (.btn, .btn-primary):** feedback de pressão `:active` com `scale(0.96)` / `scale(0.98)`.
+- **Transições:** duração 200ms, easing `cubic-bezier(0.23, 1, 0.32, 1)`.
 
 ## Do's and Don'ts
 
