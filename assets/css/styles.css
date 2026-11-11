@@ -109,7 +109,6 @@ h3{font-family:var(--font-sans);font-size:var(--fs-lg);font-weight:600;
   letter-spacing:.02em;margin-bottom:var(--sp-3)}
 .hero .lede{font-family:var(--font-sans);font-size:var(--fs-base);color:var(--text-dim);
   max-width:62ch;margin-bottom:var(--sp-4)}
-.hero-visual{margin-top:var(--space-4)}
 .hero-actions{display:flex;gap:var(--sp-2);flex-wrap:wrap}
 
 /* Botões */
@@ -177,9 +176,6 @@ table.modulos th{color:var(--text-mute);font-weight:600;text-transform:uppercase
 table.modulos td{color:var(--text-dim);font-variant-numeric:tabular-nums}
 table.modulos tr:last-child td{border-bottom:none}
 table.modulos tr:hover td{background:rgba(102,252,241,0.06);transition:background 0.15s ease}
-table.modulos tr:hover td::before{content:"";position:absolute;left:0;top:0;bottom:0;
-  width:3px;background:var(--accent);opacity:0.6;transition:opacity var(--dur) var(--ease)}
-table.modulos td{position:relative}
 table.modulos td a{color:var(--accent);white-space:nowrap}
 table.modulos td a:hover{text-decoration:underline}
 /* Contato — endpoint */
@@ -233,13 +229,6 @@ footer{border-top:1px solid var(--border);padding:var(--space-5) 0 var(--space-6
 /* Superfícies do navegador */
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
-/* Delight — microinterações de terminal/SRE */
-.nav a::after{content:"";display:block;height:1px;background:var(--accent);
-  transform:scaleX(0);transform-origin:left;transition:transform var(--dur) var(--ease)}
-.nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1)}
-.status-dot{box-shadow:0 0 8px rgba(102,252,241,0.4)}
-.btn:active{transform:scale(0.96)}
-.btn-primary:active{transform:scale(0.98)}
 ::selection{background:var(--accent);color:var(--bg)}
 ::-webkit-scrollbar{width:8px;height:8px}
 ::-webkit-scrollbar-track{background:var(--bg)}
