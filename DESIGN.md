@@ -37,6 +37,11 @@ typography:
     fontFamily: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace
     fontSize: "0.8125rem"
     letterSpacing: "0.06em"
+  metadata:
+    fontFamily: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace
+    fontSize: "0.6875rem"
+    letterSpacing: "0.04em"
+    textTransform: "uppercase"
 rounded:
   sm: "4px"
   md: "6px"
@@ -126,6 +131,7 @@ Paleta enxuta de um único acento ciano sobre neutros de preto-vulcão a cinza-q
 - **Title** (600, 1.5rem, 1.35): h3 dentro de entradas da timeline e cards de informação.
 - **Body** (peso padrão, 1rem, 1.6): parágrafos de corpo; comprimento de linha limitado a ~65ch em seções (.section p) e ~62ch no lead do hero.
 - **Label** (600, 0.8125rem, letter-spacing 0.06em, maiúsculo): .section-head (rótulos de seção) e cabeçalhos de coluna da tabela de projetos.
+- **Metadata** (600, 0.6875rem, letter-spacing 0.04em, maiúsculo): .status, .timestamp, cert-list, endpoint-dados — metadados secundários.
 
 ## Layout
 

@@ -20,7 +20,8 @@
       "headline": { "displayName": "Headline", "purpose": "h2 das seções (Sobre, Experiência, Projetos, Contato, Formação)." },
       "title": { "displayName": "Title", "purpose": "h3 dentro de entradas da timeline e cards de informação." },
       "body": { "displayName": "Body", "purpose": "Parágrafos de corpo; limite de linha ~65ch." },
-      "label": { "displayName": "Label", "purpose": ".section-head e cabeçalhos de coluna da tabela de projetos; mono, maiúsculo." }
+      "label": { "displayName": "Label", "purpose": ".section-head e cabeçalhos de coluna da tabela de projetos; mono, maiúsculo." },
+      "metadata": { "displayName": "Metadata", "purpose": ".status, .timestamp, cert-list, endpoint-dados; metadados secundários." }
     },
     "shadows": [],
     "motion": [
