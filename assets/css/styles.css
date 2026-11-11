@@ -150,6 +150,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
 .info-label{font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:0.06em;
   text-transform:uppercase;color:var(--text-dim);display:block;margin-bottom:2px}
 .info-valor{font-family:var(--font-mono);font-size:var(--fs-base);color:var(--text);display:block}
+.info-valor-menor{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--text-dim);display:block;margin-top:var(--sp-1)}
 
 /* Experiência — timeline */
 .timeline{display:flex;flex-direction:column;gap:var(--space-2)}
@@ -159,7 +160,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
 .entry:hover{background:var(--surface-3);border-color:var(--border-strong)}
 .entry:first-child{margin-top:0}
 .timestamp{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--accent);
-  padding-top:2px;white-space:nowrap}
+  padding-top:2px;white-space:nowrap;margin-bottom:var(--space-1);display:block}
 .entry-body{display:flex;flex-direction:column;gap:4px}
 .entry-body h3{font-size:var(--fs-sm);color:var(--text);margin:0}
 .empresa{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--accent);margin-bottom:0}
