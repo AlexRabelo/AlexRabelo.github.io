@@ -1,12 +1,12 @@
 [
   {
     "name": "lab-redhat-wsl2",
-    "description": "Lab RHEL no WSL2 — base do portfólio",
+    "description": "Lab Red Hat Enterprise Linux 10.2 no WSL2 com systemd, dnf, Red Hat Subscription Manager e análise crítica",
     "url": "https://github.com/AlexRabelo/lab-redhat-wsl2",
-    "language": "HTML",
-    "topics": [],
+    "language": "Shell",
+    "topics": ["rhel", "redhat", "wsl2", "linux", "sre", "devops"],
     "stars": 1,
-    "updated_at": "2026-11-08"
+    "updated_at": "2026-11-14"
   },
   {
     "name": "lab-al2023-virtualbox",
