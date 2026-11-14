@@ -1,11 +1,11 @@
 [
   {
-    "name": "lab-redhat-wsl2",
-    "description": "Lab Red Hat Enterprise Linux 10.2 no WSL2 com systemd, dnf, Red Hat Subscription Manager e análise crítica",
-    "url": "https://github.com/AlexRabelo/lab-redhat-wsl2",
+    "name": "wsl2-enterprise-linux-lab",
+    "description": "Enterprise Linux Lab no WSL 2: RHEL 10.2, CentOS Stream 10, Amazon Linux 2023 e AL2027 Preview com systemd, OpenSSH e script de auditoria",
+    "url": "https://github.com/AlexRabelo/wsl2-enterprise-linux-lab",
     "language": "Shell",
-    "topics": ["rhel", "redhat", "wsl2", "linux", "sre", "devops"],
-    "stars": 1,
+    "topics": ["wsl2", "rhel", "centos-stream", "amazon-linux-2023", "linux", "sre", "devops"],
+    "stars": 0,
     "updated_at": "2026-11-14"
   },
   {

@@ -44,7 +44,7 @@ Paleta: fundo `#050607`, acento único `#66fcf1`. Sem gradientes, sem cards arre
 
 Projetos em destaque:
 
-- lab-redhat-wsl2 — RHEL no WSL2 (nov/2026)
+- wsl2-enterprise-linux-lab — Enterprise Linux no WSL 2: RHEL 10.2, CentOS 10, AL2023 e AL2027 Preview (nov/2026)
 - lab-al2023-virtualbox — Amazon Linux 2023 no VirtualBox com Cloud-Init (nov/2026)
 - ShellScript — Curso prático de Shell Script (Bash) para Automação e SRE (nov/2026)
 - ProjetoAplicado_03 — Sistema web de recomendação de livros com ML Híbrido (set/2025)
