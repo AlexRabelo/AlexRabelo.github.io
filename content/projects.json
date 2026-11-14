@@ -19,12 +19,12 @@
   },
   {
     "name": "ShellScript",
-    "description": "Repositorio Estudos Shell Script",
+    "description": "Curso prático de Shell Script (Bash) do zero à automação SRE: 16 módulos, ShellCheck, Bats, observabilidade e AWS CLI",
     "url": "https://github.com/AlexRabelo/ShellScript",
     "language": "Shell",
-    "topics": [],
+    "topics": ["bash", "shell-script", "linux", "sre", "devops", "shellcheck", "bats"],
     "stars": 0,
-    "updated_at": "2026-11-08"
+    "updated_at": "2026-11-14"
   },
   {
     "name": "ProjetoAplicado_03",

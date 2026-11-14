@@ -46,7 +46,7 @@ Projetos em destaque:
 
 - lab-redhat-wsl2 — RHEL no WSL2 (nov/2026)
 - lab-al2023-virtualbox — Amazon Linux 2023 no VirtualBox com Cloud-Init (nov/2026)
-- ShellScript — Repositorio Estudos Shell Script (nov/2026)
+- ShellScript — Curso prático de Shell Script (Bash) para Automação e SRE (nov/2026)
 - ProjetoAplicado_03 — Sistema web de recomendação de livros com ML Híbrido (set/2025)
 - iac-aws-terraform-demo — Terraform AWS modular (set/2025)
 - dio-lab-open-source — Lab Open Source da DIO (jul/2024)
