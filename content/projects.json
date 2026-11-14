@@ -9,13 +9,13 @@
     "updated_at": "2026-11-08"
   },
   {
-    "name": "sre-lpi-lab",
-    "description": "Projeto para criar um lab para treinamento de SRE — AWS Local Lab: Amazon Linux 2023 no VirtualBox",
-    "url": "https://github.com/AlexRabelo/sre-lpi-lab",
-    "language": null,
-    "topics": [],
+    "name": "lab-al2023-virtualbox",
+    "description": "Lab Amazon Linux 2023 no VirtualBox com Cloud-Init (NoCloud) e acesso SSH sem senha",
+    "url": "https://github.com/AlexRabelo/lab-al2023-virtualbox",
+    "language": "Shell",
+    "topics": ["amazon-linux-2023", "virtualbox", "cloud-init", "linux", "sre", "aws"],
     "stars": 0,
-    "updated_at": "2026-11-09"
+    "updated_at": "2026-11-14"
   },
   {
     "name": "ShellScript",
